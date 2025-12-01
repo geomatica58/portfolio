@@ -11,247 +11,420 @@
     <style>
         /* Smooth scrolling */
         html { scroll-behavior: smooth; }
-        .hide { display: none; }
-        .fade-in { animation: fadeIn 0.5s ease-in; }
+        .hide { display: none !important; }
+        .fade-in { animation: fadeIn 0.5s ease-in-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Custom scrollbar for detail view */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #06b6d4; }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-200 font-sans selection:bg-cyan-500 selection:text-slate-900">
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-slate-950/90 backdrop-blur-md border-b border-slate-800">
-        <div class="container mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-2 font-bold text-2xl tracking-tighter text-white">
-                <i data-lucide="layers" class="text-cyan-400"></i>
-                GEOMATICA
-            </div>
-            <div class="hidden md:flex gap-8 text-sm font-medium text-slate-400">
-                <a href="#services" class="hover:text-cyan-400 transition-colors">Services</a>
-                <a href="#portfolio" class="hover:text-cyan-400 transition-colors">Portfolio</a>
-                <a href="#contact" class="hover:text-cyan-400 transition-colors">Contact</a>
-            </div>
-            <a href="#contact" class="hidden md:block px-6 py-2 bg-cyan-500 text-slate-900 rounded-md font-bold hover:bg-cyan-400 transition-colors">
-                Hire Geomatica
-            </a>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6 overflow-hidden">
-        <!-- Background Effects -->
-        <div class="absolute inset-0 z-0 opacity-10 pointer-events-none">
-            <div class="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-            <div class="absolute right-0 top-20 w-96 h-96 bg-cyan-500 rounded-full mix-blend-screen filter blur-[128px] opacity-20"></div>
-        </div>
-
-        <div class="container mx-auto relative z-10 max-w-4xl text-center">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-700 text-cyan-400 text-xs font-medium mb-6 uppercase tracking-wider">
-                <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-                Open for Commissions
-            </div>
-            <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-8">
-                Turning Complex Data into <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Spatial Intelligence.</span>
-            </h1>
-            <p class="text-xl text-slate-400 mb-10 max-w-2xl mx-auto">
-                Geomatica is a specialized freelance consultancy bridging the gap between raw spatial data and actionable insights through modern GIS analysis and web mapping.
-            </p>
-            <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="#portfolio" class="px-8 py-3 bg-cyan-500 text-slate-900 rounded-md font-bold hover:bg-cyan-400 transition-colors">View Projects</a>
-                <a href="#services" class="px-8 py-3 border border-slate-600 text-slate-300 rounded-md font-bold hover:border-cyan-400 hover:text-cyan-400 transition-colors">Services</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-24 bg-slate-900/50">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-white mb-4">Core Capabilities</h2>
-                <div class="h-1 w-20 bg-cyan-500 mx-auto rounded"></div>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Service 1 -->
-                <div class="bg-slate-950 p-8 rounded-xl border border-slate-800 hover:border-cyan-500/50 transition-colors group">
-                    <div class="mb-6 bg-slate-900 w-16 h-16 rounded-lg flex items-center justify-center group-hover:bg-cyan-500/10 transition-colors">
-                        <i data-lucide="map" class="text-cyan-400 w-8 h-8"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Advanced Cartography</h3>
-                    <p class="text-slate-400 text-sm">Creating visually stunning, publication-ready maps that communicate complex spatial data clearly.</p>
+    <!-- ================= MAIN SITE CONTENT ================= -->
+    <div id="main-content">
+        
+        <!-- Navigation -->
+        <nav class="fixed w-full z-50 bg-slate-950/90 backdrop-blur-md border-b border-slate-800">
+            <div class="container mx-auto px-6 h-20 flex items-center justify-between">
+                <div class="flex items-center gap-2 font-bold text-2xl tracking-tighter text-white">
+                    <i data-lucide="layers" class="text-cyan-400"></i>
+                    GEOMATICA
                 </div>
-                <!-- Service 2 -->
-                <div class="bg-slate-950 p-8 rounded-xl border border-slate-800 hover:border-cyan-500/50 transition-colors group">
-                    <div class="mb-6 bg-slate-900 w-16 h-16 rounded-lg flex items-center justify-center group-hover:bg-cyan-500/10 transition-colors">
-                        <i data-lucide="globe" class="text-cyan-400 w-8 h-8"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Web GIS Development</h3>
-                    <p class="text-slate-400 text-sm">Interactive web mapping applications using Leaflet, Mapbox, and OpenLayers tailored to your data.</p>
+                <div class="hidden md:flex gap-8 text-sm font-medium text-slate-400">
+                    <a href="#services" class="hover:text-cyan-400 transition-colors">Services</a>
+                    <a href="#portfolio" class="hover:text-cyan-400 transition-colors">Portfolio</a>
+                    <a href="#contact" class="hover:text-cyan-400 transition-colors">Contact</a>
                 </div>
-                <!-- Service 3 -->
-                <div class="bg-slate-950 p-8 rounded-xl border border-slate-800 hover:border-cyan-500/50 transition-colors group">
-                    <div class="mb-6 bg-slate-900 w-16 h-16 rounded-lg flex items-center justify-center group-hover:bg-cyan-500/10 transition-colors">
-                        <i data-lucide="bar-chart-3" class="text-cyan-400 w-8 h-8"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Spatial Analysis</h3>
-                    <p class="text-slate-400 text-sm">Deep dive data analytics, site selection, suitability modeling, and demographic profiling.</p>
+                <a href="#contact" class="hidden md:block px-6 py-2 bg-cyan-500 text-slate-900 rounded-md font-bold hover:bg-cyan-400 transition-colors">
+                    Hire Geomatica
+                </a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6 overflow-hidden">
+            <!-- Background Effects -->
+            <div class="absolute inset-0 z-0 opacity-10 pointer-events-none">
+                <div class="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+                <div class="absolute right-0 top-20 w-96 h-96 bg-cyan-500 rounded-full mix-blend-screen filter blur-[128px] opacity-20"></div>
+            </div>
+
+            <div class="container mx-auto relative z-10 max-w-4xl text-center">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-700 text-cyan-400 text-xs font-medium mb-6 uppercase tracking-wider">
+                    <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                    Open for Commissions
                 </div>
-                 <!-- Service 4 -->
-                 <div class="bg-slate-950 p-8 rounded-xl border border-slate-800 hover:border-cyan-500/50 transition-colors group">
-                    <div class="mb-6 bg-slate-900 w-16 h-16 rounded-lg flex items-center justify-center group-hover:bg-cyan-500/10 transition-colors">
-                        <i data-lucide="database" class="text-cyan-400 w-8 h-8"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Geodatabase Mgmt</h3>
-                    <p class="text-slate-400 text-sm">Design, implementation, and maintenance of robust spatial databases (PostGIS, Geopackage).</p>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-8">
+                    Turning Complex Data into <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Spatial Intelligence.</span>
+                </h1>
+                <p class="text-xl text-slate-400 mb-10 max-w-2xl mx-auto">
+                    Geomatica is a specialized freelance consultancy bridging the gap between raw spatial data and actionable insights through modern GIS analysis and web mapping.
+                </p>
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <a href="#portfolio" class="px-8 py-3 bg-cyan-500 text-slate-900 rounded-md font-bold hover:bg-cyan-400 transition-colors">View Projects</a>
+                    <a href="#services" class="px-8 py-3 border border-slate-600 text-slate-300 rounded-md font-bold hover:border-cyan-400 hover:text-cyan-400 transition-colors">Services</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="py-24 px-6">
-        <div class="container mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-                <div>
-                    <h2 class="text-3xl font-bold text-white mb-4">Featured Projects</h2>
-                    <p class="text-slate-400">A selection of recent mapping and analysis work.</p>
+        <!-- Services Section -->
+        <section id="services" class="py-24 bg-slate-900/50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold text-white mb-4">Core Capabilities</h2>
+                    <div class="h-1 w-20 bg-cyan-500 mx-auto rounded"></div>
                 </div>
                 
-                <!-- Filter Buttons -->
-                <div class="flex bg-slate-900 p-1 rounded-lg border border-slate-800" id="filter-container">
-                    <button onclick="filterProjects('all')" class="filter-btn px-4 py-2 rounded-md text-sm font-medium bg-cyan-500 text-slate-900 shadow-md transition-all">All</button>
-                    <button onclick="filterProjects('Analysis')" class="filter-btn px-4 py-2 rounded-md text-sm font-medium text-slate-400 hover:text-white transition-all">Analysis</button>
-                    <button onclick="filterProjects('Cartography')" class="filter-btn px-4 py-2 rounded-md text-sm font-medium text-slate-400 hover:text-white transition-all">Cartography</button>
-                    <button onclick="filterProjects('Resources')" class="filter-btn px-4 py-2 rounded-md text-sm font-medium text-slate-400 hover:text-white transition-all">Resources</button>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-slate-950 p-8 rounded-xl border border-slate-800 hover:border-cyan-500/50 transition-colors group">
+                        <div class="mb-6 bg-slate-900 w-16 h-16 rounded-lg flex items-center justify-center group-hover:bg-cyan-500/10 transition-colors">
+                            <i data-lucide="map" class="text-cyan-400 w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Advanced Cartography</h3>
+                        <p class="text-slate-400 text-sm">Creating visually stunning, publication-ready maps that communicate complex spatial data clearly.</p>
+                    </div>
+                    <div class="bg-slate-950 p-8 rounded-xl border border-slate-800 hover:border-cyan-500/50 transition-colors group">
+                        <div class="mb-6 bg-slate-900 w-16 h-16 rounded-lg flex items-center justify-center group-hover:bg-cyan-500/10 transition-colors">
+                            <i data-lucide="globe" class="text-cyan-400 w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Web GIS Development</h3>
+                        <p class="text-slate-400 text-sm">Interactive web mapping applications using Leaflet, Mapbox, and OpenLayers tailored to your data.</p>
+                    </div>
+                    <div class="bg-slate-950 p-8 rounded-xl border border-slate-800 hover:border-cyan-500/50 transition-colors group">
+                        <div class="mb-6 bg-slate-900 w-16 h-16 rounded-lg flex items-center justify-center group-hover:bg-cyan-500/10 transition-colors">
+                            <i data-lucide="bar-chart-3" class="text-cyan-400 w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Spatial Analysis</h3>
+                        <p class="text-slate-400 text-sm">Deep dive data analytics, site selection, suitability modeling, and demographic profiling.</p>
+                    </div>
+                    <div class="bg-slate-950 p-8 rounded-xl border border-slate-800 hover:border-cyan-500/50 transition-colors group">
+                        <div class="mb-6 bg-slate-900 w-16 h-16 rounded-lg flex items-center justify-center group-hover:bg-cyan-500/10 transition-colors">
+                            <i data-lucide="database" class="text-cyan-400 w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Geodatabase Mgmt</h3>
+                        <p class="text-slate-400 text-sm">Design, implementation, and maintenance of robust spatial databases (PostGIS, Geopackage).</p>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Project Grid -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="project-grid">
-                
-                <!-- Project 1 -->
-                <div class="project-card group bg-slate-900 rounded-xl overflow-hidden border border-slate-800 hover:border-cyan-500/30 transition-all hover:-translate-y-1 flex flex-col" data-category="Analysis">
-                    <div class="h-48 w-full relative overflow-hidden bg-slate-950">
-                        <img src="FSAIII_Simu_2030.jpg" alt="Urban Sim" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105" onerror="this.src='https://placehold.co/600x400/1e293b/475569?text=Map+Image'">
-                        <div class="absolute top-4 right-4 bg-slate-950/90 px-2 py-1 rounded text-xs text-white font-mono border border-slate-700">Analysis</div>
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="py-24 px-6">
+            <div class="container mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                    <div>
+                        <h2 class="text-3xl font-bold text-white mb-4">Featured Projects</h2>
+                        <p class="text-slate-400">A selection of recent mapping and analysis work.</p>
                     </div>
-                    <div class="p-6 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold text-white mb-2">Predictive Urban Modelling</h3>
-                        <p class="text-slate-400 text-sm mb-6 flex-1">Simulation of urban expansion trends using Cellular Automata (CA) and proximity constraints. Visualizing growth scenarios for 2030.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-2 py-1 bg-slate-950 border border-slate-800 rounded text-xs text-cyan-400 font-mono">Cellular Automata</span>
-                            <span class="px-2 py-1 bg-slate-950 border border-slate-800 rounded text-xs text-cyan-400 font-mono">Prediction</span>
-                        </div>
+                    
+                    <!-- Filter Buttons -->
+                    <div class="flex bg-slate-900 p-1 rounded-lg border border-slate-800" id="filter-container">
+                        <button onclick="filterProjects('all')" class="filter-btn px-4 py-2 rounded-md text-sm font-medium bg-cyan-500 text-slate-900 shadow-md transition-all">All</button>
+                        <button onclick="filterProjects('Analysis')" class="filter-btn px-4 py-2 rounded-md text-sm font-medium text-slate-400 hover:text-white transition-all">Analysis</button>
+                        <button onclick="filterProjects('Cartography')" class="filter-btn px-4 py-2 rounded-md text-sm font-medium text-slate-400 hover:text-white transition-all">Cartography</button>
+                        <button onclick="filterProjects('Resources')" class="filter-btn px-4 py-2 rounded-md text-sm font-medium text-slate-400 hover:text-white transition-all">Resources</button>
                     </div>
                 </div>
 
-                <!-- Project 2 -->
-                <div class="project-card group bg-slate-900 rounded-xl overflow-hidden border border-slate-800 hover:border-cyan-500/30 transition-all hover:-translate-y-1 flex flex-col" data-category="Analysis">
-                    <div class="h-48 w-full relative overflow-hidden bg-slate-950">
-                        <img src="Sent_NDVI.jpg" alt="NDVI" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105" onerror="this.src='https://placehold.co/600x400/1e293b/475569?text=Satellite+Image'">
-                        <div class="absolute top-4 right-4 bg-slate-950/90 px-2 py-1 rounded text-xs text-white font-mono border border-slate-700">Analysis</div>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold text-white mb-2">Multi-Spectral Remote Sensing</h3>
-                        <p class="text-slate-400 text-sm mb-6 flex-1">Deriving environmental indices (NDVI, NDWI, NDBI) from Sentinel imagery to assess vegetation health and built-up density.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-2 py-1 bg-slate-950 border border-slate-800 rounded text-xs text-cyan-400 font-mono">Sentinel-2</span>
-                            <span class="px-2 py-1 bg-slate-950 border border-slate-800 rounded text-xs text-cyan-400 font-mono">NDVI</span>
+                <!-- Project Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="project-grid">
+                    
+                    <!-- Project 1: Urban Sim -->
+                    <div class="project-card group bg-slate-900 rounded-xl overflow-hidden border border-slate-800 hover:border-cyan-500/30 transition-all hover:-translate-y-1 flex flex-col cursor-pointer" 
+                         data-category="Analysis" onclick="openProject('urban-sim')">
+                        <div class="h-48 w-full relative overflow-hidden bg-slate-950">
+                            <img src="FSAIII_Simu_2030.jpg" alt="Urban Sim" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105" onerror="this.src='https://placehold.co/600x400/1e293b/475569?text=Map+Image'">
+                            <div class="absolute top-4 right-4 bg-slate-950/90 px-2 py-1 rounded text-xs text-white font-mono border border-slate-700">Analysis</div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">Predictive Urban Modelling</h3>
+                            <p class="text-slate-400 text-sm mb-6 flex-1">Simulation of urban expansion trends using Cellular Automata (CA) and proximity constraints.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-slate-950 border border-slate-800 rounded text-xs text-cyan-400 font-mono">Cellular Automata</span>
+                                <span class="px-2 py-1 bg-slate-950 border border-slate-800 rounded text-xs text-cyan-400 font-mono">Prediction</span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Project 3 -->
-                <div class="project-card group bg-slate-900 rounded-xl overflow-hidden border border-slate-800 hover:border-cyan-500/30 transition-all hover:-translate-y-1 flex flex-col" data-category="Analysis">
-                    <div class="h-48 w-full relative overflow-hidden bg-slate-950">
-                        <img src="LULC_Comp.jpg" alt="LULC" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105" onerror="this.src='https://placehold.co/600x400/1e293b/475569?text=LULC+Map'">
-                        <div class="absolute top-4 right-4 bg-slate-950/90 px-2 py-1 rounded text-xs text-white font-mono border border-slate-700">Analysis</div>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold text-white mb-2">Temporal LULC Change</h3>
-                        <p class="text-slate-400 text-sm mb-6 flex-1">Quantifying urbanization rates and vegetation loss over a multi-year period with rigorous accuracy assessment.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-2 py-1 bg-slate-950 border border-slate-800 rounded text-xs text-cyan-400 font-mono">LULC</span>
-                            <span class="px-2 py-1 bg-slate-950 border border-slate-800 rounded text-xs text-cyan-400 font-mono">Change Detection</span>
+                    <!-- Project 2: NDVI -->
+                    <div class="project-card group bg-slate-900 rounded-xl overflow-hidden border border-slate-800 hover:border-cyan-500/30 transition-all hover:-translate-y-1 flex flex-col cursor-pointer" 
+                         data-category="Analysis" onclick="openProject('remote-sensing')">
+                        <div class="h-48 w-full relative overflow-hidden bg-slate-950">
+                            <img src="Sent_NDVI.jpg" alt="NDVI" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105" onerror="this.src='https://placehold.co/600x400/1e293b/475569?text=Satellite+Image'">
+                            <div class="absolute top-4 right-4 bg-slate-950/90 px-2 py-1 rounded text-xs text-white font-mono border border-slate-700">Analysis</div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">Multi-Spectral Remote Sensing</h3>
+                            <p class="text-slate-400 text-sm mb-6 flex-1">Deriving environmental indices (NDVI, NDWI, NDBI) from Sentinel imagery.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-slate-950 border border-slate-800 rounded text-xs text-cyan-400 font-mono">Sentinel-2</span>
+                                <span class="px-2 py-1 bg-slate-950 border border-slate-800 rounded text-xs text-cyan-400 font-mono">NDVI</span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Project 4 (PDF) -->
-                <div class="project-card group bg-slate-900 rounded-xl overflow-hidden border border-slate-800 hover:border-cyan-500/30 transition-all hover:-translate-y-1 flex flex-col" data-category="Resources">
-                    <div class="h-48 w-full relative overflow-hidden bg-slate-800 flex flex-col items-center justify-center text-slate-500">
-                         <i data-lucide="file-text" class="w-12 h-12 mb-2 text-cyan-500/50"></i>
-                         <span class="text-xs font-mono">PDF DOCUMENT</span>
-                        <div class="absolute top-4 right-4 bg-slate-950/90 px-2 py-1 rounded text-xs text-white font-mono border border-slate-700">Resources</div>
+                    <!-- Project 3: LULC -->
+                    <div class="project-card group bg-slate-900 rounded-xl overflow-hidden border border-slate-800 hover:border-cyan-500/30 transition-all hover:-translate-y-1 flex flex-col cursor-pointer" 
+                         data-category="Analysis" onclick="openProject('lulc')">
+                        <div class="h-48 w-full relative overflow-hidden bg-slate-950">
+                            <img src="LULC_Comp.jpg" alt="LULC" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105" onerror="this.src='https://placehold.co/600x400/1e293b/475569?text=LULC+Map'">
+                            <div class="absolute top-4 right-4 bg-slate-950/90 px-2 py-1 rounded text-xs text-white font-mono border border-slate-700">Analysis</div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">Temporal LULC Change</h3>
+                            <p class="text-slate-400 text-sm mb-6 flex-1">Quantifying urbanization rates and vegetation loss over a multi-year period.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-slate-950 border border-slate-800 rounded text-xs text-cyan-400 font-mono">LULC</span>
+                                <span class="px-2 py-1 bg-slate-950 border border-slate-800 rounded text-xs text-cyan-400 font-mono">Change Detection</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="p-6 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold text-white mb-2">Vector Digitization Framework</h3>
-                        <p class="text-slate-400 text-sm mb-6 flex-1">A comprehensive guide to GIS digitization standards, topology rules, and data structuring.</p>
-                        <a href="Intro_GIS.pdf" download class="mt-auto w-full py-2 flex items-center justify-center gap-2 bg-slate-800 hover:bg-cyan-500 hover:text-slate-900 rounded transition-colors text-sm font-semibold">
-                            <i data-lucide="download" class="w-4 h-4"></i> Download PDF
+
+                    <!-- Project 4: PDF -->
+                    <div class="project-card group bg-slate-900 rounded-xl overflow-hidden border border-slate-800 hover:border-cyan-500/30 transition-all hover:-translate-y-1 flex flex-col cursor-pointer" 
+                         data-category="Resources" onclick="openProject('vector-framework')">
+                        <div class="h-48 w-full relative overflow-hidden bg-slate-800 flex flex-col items-center justify-center text-slate-500">
+                             <i data-lucide="file-text" class="w-12 h-12 mb-2 text-cyan-500/50"></i>
+                             <span class="text-xs font-mono">PDF DOCUMENT</span>
+                            <div class="absolute top-4 right-4 bg-slate-950/90 px-2 py-1 rounded text-xs text-white font-mono border border-slate-700">Resources</div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">Vector Digitization Framework</h3>
+                            <p class="text-slate-400 text-sm mb-6 flex-1">A comprehensive guide to GIS digitization standards, topology rules, and data structuring.</p>
+                            <span class="text-cyan-500 text-sm font-bold flex items-center gap-1"><i data-lucide="download" class="w-4 h-4"></i> Download PDF</span>
+                        </div>
+                    </div>
+
+                     <!-- Project 5: Historic -->
+                     <div class="project-card group bg-slate-900 rounded-xl overflow-hidden border border-slate-800 hover:border-cyan-500/30 transition-all hover:-translate-y-1 flex flex-col cursor-pointer" 
+                          data-category="Cartography" onclick="openProject('historic')">
+                        <div class="h-48 w-full relative overflow-hidden bg-slate-950">
+                            <img src="FSAIIILULC_1990.jpg" alt="Historic Map" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105" onerror="this.src='https://placehold.co/600x400/1e293b/475569?text=1990+Map'">
+                            <div class="absolute top-4 right-4 bg-slate-950/90 px-2 py-1 rounded text-xs text-white font-mono border border-slate-700">Cartography</div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">Historical Land Use Baseline</h3>
+                            <p class="text-slate-400 text-sm mb-6 flex-1">Establishing the 1990 baseline for urban sprawl analysis.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-slate-950 border border-slate-800 rounded text-xs text-cyan-400 font-mono">Historical Data</span>
+                                <span class="px-2 py-1 bg-slate-950 border border-slate-800 rounded text-xs text-cyan-400 font-mono">Mapping</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 px-6 relative">
+            <div class="container mx-auto max-w-4xl bg-gradient-to-br from-slate-900 to-slate-950 p-8 md:p-12 rounded-2xl border border-slate-800 text-center relative z-10">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to visualize your data?</h2>
+                <p class="text-slate-400 mb-8 max-w-xl mx-auto">
+                    Whether you need a custom web map, spatial analysis for a research project, or a full GIS implementation, I'm here to help.
+                </p>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+                    <a href="mailto:abhijeetpawar1305@gmail.com" class="flex items-center gap-3 bg-cyan-500 text-slate-900 px-8 py-4 rounded-lg font-bold hover:bg-cyan-400 transition-colors w-full md:w-auto justify-center">
+                        <i data-lucide="mail" class="w-5 h-5"></i> Send an Email
+                    </a>
+                    <div class="flex gap-4">
+                        <a href="https://www.linkedin.com/in/abhijeetpawar1305/" target="_blank" class="p-4 bg-slate-800 rounded-lg text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
                         </a>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                 <!-- Project 5 -->
-                 <div class="project-card group bg-slate-900 rounded-xl overflow-hidden border border-slate-800 hover:border-cyan-500/30 transition-all hover:-translate-y-1 flex flex-col" data-category="Cartography">
-                    <div class="h-48 w-full relative overflow-hidden bg-slate-950">
-                        <img src="FSAIIILULC_1990.jpg" alt="Historic Map" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105" onerror="this.src='https://placehold.co/600x400/1e293b/475569?text=1990+Map'">
-                        <div class="absolute top-4 right-4 bg-slate-950/90 px-2 py-1 rounded text-xs text-white font-mono border border-slate-700">Cartography</div>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold text-white mb-2">Historical Land Use Baseline</h3>
-                        <p class="text-slate-400 text-sm mb-6 flex-1">Establishing the 1990 baseline for urban sprawl analysis to understand long-term development patterns.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-2 py-1 bg-slate-950 border border-slate-800 rounded text-xs text-cyan-400 font-mono">Historical Data</span>
-                            <span class="px-2 py-1 bg-slate-950 border border-slate-800 rounded text-xs text-cyan-400 font-mono">Mapping</span>
-                        </div>
-                    </div>
-                </div>
+        <!-- Footer -->
+        <footer class="py-8 text-center text-slate-600 text-sm border-t border-slate-900 bg-slate-950">
+            <div class="flex items-center justify-center gap-2 mb-4">
+                <i data-lucide="layers" class="w-5 h-5 text-slate-700"></i>
+                <span class="font-bold text-slate-700">GEOMATICA</span>
+            </div>
+            <p>© 2025 Geomatica. All Rights Reserved.</p>
+        </footer>
+    </div>
 
+    <!-- ================= DETAIL VIEW (Hidden by Default) ================= -->
+    <div id="detail-view" class="fixed inset-0 bg-slate-950 z-[100] overflow-y-auto hide">
+        <!-- Close Button -->
+        <div class="fixed top-6 right-6 z-[101]">
+            <button onclick="closeProject()" class="p-2 bg-slate-800 rounded-full hover:bg-slate-700 text-white transition-colors border border-slate-700">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <div class="container mx-auto px-6 py-20 max-w-4xl">
+            <!-- Back Link -->
+            <button onclick="closeProject()" class="flex items-center gap-2 text-cyan-400 mb-8 hover:text-white transition-colors">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Portfolio
+            </button>
+
+            <!-- Content Container -->
+            <div id="detail-content" class="fade-in">
+                <!-- Content injected via JS -->
             </div>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 px-6 relative">
-        <div class="container mx-auto max-w-4xl bg-gradient-to-br from-slate-900 to-slate-950 p-8 md:p-12 rounded-2xl border border-slate-800 text-center relative z-10">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to visualize your data?</h2>
-            <p class="text-slate-400 mb-8 max-w-xl mx-auto">
-                Whether you need a custom web map, spatial analysis for a research project, or a full GIS implementation, I'm here to help.
-            </p>
-            <div class="flex flex-col md:flex-row items-center justify-center gap-6">
-                <a href="mailto:abhijeetpawar1305@gmail.com" class="flex items-center gap-3 bg-cyan-500 text-slate-900 px-8 py-4 rounded-lg font-bold hover:bg-cyan-400 transition-colors w-full md:w-auto justify-center">
-                    <i data-lucide="mail" class="w-5 h-5"></i> Send an Email
-                </a>
-                <div class="flex gap-4">
-                    <a href="https://www.linkedin.com/in/abhijeetpawar1305/" target="_blank" class="p-4 bg-slate-800 rounded-lg text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
-                        <i data-lucide="linkedin" class="w-5 h-5"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-8 text-center text-slate-600 text-sm border-t border-slate-900 bg-slate-950">
-        <div class="flex items-center justify-center gap-2 mb-4">
-            <i data-lucide="layers" class="w-5 h-5 text-slate-700"></i>
-            <span class="font-bold text-slate-700">GEOMATICA</span>
-        </div>
-        <p>© 2025 Geomatica. All Rights Reserved.</p>
-    </footer>
+    </div>
 
     <!-- Scripts -->
     <script>
         // Initialize Icons
         lucide.createIcons();
 
-        // Filter Logic
+        // --- 1. PROJECT DATA ---
+        const projectsData = {
+            'urban-sim': {
+                title: "Predictive Urban Modelling",
+                category: "Spatial Analysis",
+                image: "FSAIII_Simu_2030.jpg",
+                description: `
+                    <p class="text-xl text-slate-300 mb-6">Advanced simulation of urban expansion trends using Cellular Automata (CA) and proximity constraints.</p>
+                    <div class="bg-slate-900 p-6 rounded-xl border border-slate-800 mb-8">
+                        <h3 class="text-white font-bold mb-4">Project Overview</h3>
+                        <p class="text-slate-400 mb-4">This study analyzes historical data to project future growth patterns for 2025 and 2030. By utilizing Markov Chain analysis combined with Cellular Automata, we were able to predict probable zones of urban encroachment with 85% accuracy compared to recent trends.</p>
+                        <ul class="list-disc list-inside text-slate-400 space-y-2">
+                            <li>Processed 30 years of Landsat imagery.</li>
+                            <li>Applied fuzzy logic to proximity factors (Roads, CBD, Water).</li>
+                            <li>Generated growth scenarios for policy planning.</li>
+                        </ul>
+                    </div>
+                `
+            },
+            'remote-sensing': {
+                title: "Multi-Spectral Remote Sensing",
+                category: "Remote Sensing",
+                image: "Sent_NDVI.jpg",
+                description: `
+                    <p class="text-xl text-slate-300 mb-6">Processing Sentinel satellite imagery to derive critical environmental indices.</p>
+                    <div class="bg-slate-900 p-6 rounded-xl border border-slate-800 mb-8">
+                        <h3 class="text-white font-bold mb-4">Technical Details</h3>
+                        <p class="text-slate-400 mb-4">Includes analysis of vegetation health (NDVI), water content (NDWI), and built-up density (NDBI). This project demonstrated the capability to monitor drought conditions and urban heat island effects using open-source satellite data.</p>
+                        <div class="grid md:grid-cols-3 gap-4 mt-6">
+                            <div class="bg-slate-950 p-4 rounded border border-slate-800 text-center">
+                                <div class="text-cyan-400 font-bold">NDVI</div>
+                                <div class="text-xs text-slate-500">Vegetation Health</div>
+                            </div>
+                            <div class="bg-slate-950 p-4 rounded border border-slate-800 text-center">
+                                <div class="text-blue-400 font-bold">NDWI</div>
+                                <div class="text-xs text-slate-500">Water Bodies</div>
+                            </div>
+                            <div class="bg-slate-950 p-4 rounded border border-slate-800 text-center">
+                                <div class="text-orange-400 font-bold">NDBI</div>
+                                <div class="text-xs text-slate-500">Built-Up Area</div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            'lulc': {
+                title: "Temporal LULC Change",
+                category: "Change Detection",
+                image: "LULC_Comp.jpg",
+                description: `
+                    <p class="text-xl text-slate-300 mb-6">Comprehensive Land Use Land Cover (LULC) change detection over a multi-year period.</p>
+                    <div class="bg-slate-900 p-6 rounded-xl border border-slate-800 mb-8">
+                        <h3 class="text-white font-bold mb-4">Methodology</h3>
+                        <p class="text-slate-400 mb-4">This project quantifies urbanization rates and vegetation loss. We employed Maximum Likelihood Classification (MLC) on multi-temporal datasets to derive change matrices.</p>
+                        <p class="text-slate-400">The results highlighted a significant conversion of agricultural land to impervious surfaces, aiding local municipal bodies in zoning regulations.</p>
+                    </div>
+                `
+            },
+            'vector-framework': {
+                title: "Vector Digitization Framework",
+                category: "Resources",
+                image: "Intro_GIS.pdf",
+                isPdf: true,
+                description: `
+                    <p class="text-xl text-slate-300 mb-6">A technical resource detailing best practices for vectorization and topology rules.</p>
+                    <div class="bg-slate-900 p-6 rounded-xl border border-slate-800 mb-8 flex flex-col items-center justify-center text-center">
+                        <i data-lucide="file-text" class="w-16 h-16 text-cyan-500 mb-4"></i>
+                        <h3 class="text-white font-bold mb-2">Download Resource</h3>
+                        <p class="text-slate-400 mb-6 max-w-md">This PDF guide covers layer structuring, snapping environments, and attribute table management in QGIS.</p>
+                        <a href="Intro_GIS.pdf" download class="px-8 py-3 bg-cyan-500 text-slate-900 rounded-md font-bold hover:bg-cyan-400 transition-colors flex items-center gap-2">
+                            <i data-lucide="download" class="w-5 h-5"></i> Download PDF
+                        </a>
+                    </div>
+                `
+            },
+            'historic': {
+                title: "Historical Land Use Baseline",
+                category: "Cartography",
+                image: "FSAIIILULC_1990.jpg",
+                description: `
+                    <p class="text-xl text-slate-300 mb-6">Establishing the 1990 baseline for urban sprawl analysis.</p>
+                    <div class="bg-slate-900 p-6 rounded-xl border border-slate-800 mb-8">
+                        <h3 class="text-white font-bold mb-4">Cartographic Process</h3>
+                        <p class="text-slate-400">Digitization of archival maps and early satellite imagery was performed to reconstruct the urban footprint of 1990. This serves as the 'Ground Zero' for all subsequent change detection models.</p>
+                    </div>
+                `
+            }
+        };
+
+        // --- 2. LOGIC TO OPEN/CLOSE ---
+        
+        function openProject(id) {
+            const data = projectsData[id];
+            if(!data) return;
+
+            const contentDiv = document.getElementById('detail-content');
+            
+            // Build HTML for the detail view
+            let imageHtml = '';
+            if (data.isPdf) {
+                // Formatting for PDF
+                 imageHtml = `
+                    <div class="w-full h-64 bg-slate-900 border border-slate-800 rounded-xl mb-8 flex items-center justify-center">
+                        <div class="text-center">
+                            <i data-lucide="file-text" class="w-12 h-12 text-slate-500 mx-auto mb-2"></i>
+                            <span class="text-slate-400 font-mono">PDF Document Preview</span>
+                        </div>
+                    </div>`;
+            } else {
+                // Formatting for Image
+                imageHtml = `
+                    <div class="w-full h-64 md:h-96 bg-slate-900 rounded-xl mb-8 overflow-hidden border border-slate-800">
+                        <img src="${data.image}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/800x400/1e293b/475569?text=Project+Image'">
+                    </div>`;
+            }
+
+            const html = `
+                <span class="text-cyan-500 font-mono text-sm uppercase tracking-widest mb-2 block">${data.category}</span>
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-8">${data.title}</h1>
+                ${imageHtml}
+                <div class="prose prose-invert max-w-none">
+                    ${data.description}
+                </div>
+            `;
+
+            contentDiv.innerHTML = html;
+            
+            // Re-render icons for the new content
+            lucide.createIcons();
+
+            // Toggle views
+            document.getElementById('main-content').classList.add('hide');
+            document.getElementById('detail-view').classList.remove('hide');
+            window.scrollTo(0,0);
+        }
+
+        function closeProject() {
+            document.getElementById('detail-view').classList.add('hide');
+            document.getElementById('main-content').classList.remove('hide');
+            // Re-render icons just in case
+            lucide.createIcons();
+        }
+
+        // --- 3. FILTER LOGIC (Existing) ---
         function filterProjects(category) {
             const cards = document.querySelectorAll('.project-card');
             const buttons = document.querySelectorAll('.filter-btn');
 
-            // Button Styles
             buttons.forEach(btn => {
                 if (btn.innerText.toLowerCase() === category.toLowerCase() || (category === 'all' && btn.innerText === 'All')) {
                     btn.classList.remove('text-slate-400', 'bg-transparent');
@@ -262,7 +435,6 @@
                 }
             });
 
-            // Card Filtering
             cards.forEach(card => {
                 if (category === 'all' || card.getAttribute('data-category') === category) {
                     card.classList.remove('hide');
