@@ -138,7 +138,7 @@
                 <!-- Project Grid -->
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="project-grid">
                     
-                    <!-- Project 1: Urban Sim (UPDATED IMAGES) -->
+                    <!-- Project 1: Urban Sim -->
                     <div class="project-card group bg-white rounded-xl overflow-hidden border border-slate-200 hover:border-cyan-500 hover:shadow-xl hover:shadow-cyan-100 transition-all hover:-translate-y-1 flex flex-col cursor-pointer shadow-sm" 
                          data-category="Analysis" onclick="openProject('urban-sim')">
                         <div class="h-48 w-full relative overflow-hidden bg-slate-100">
@@ -387,48 +387,59 @@
 
             const contentDiv = document.getElementById('detail-content');
             
-            // Build Main Image or PDF Preview
-            let mainVisualHtml = '';
+            // Gather all images (Main + Gallery)
+            let allImages = [];
+            if (data.image) allImages.push(data.image);
+            if (data.gallery) allImages = [...new Set([...allImages, ...data.gallery])]; // Remove dupes if main image is in gallery
+
+            // Build Images HTML (Right Column)
+            let imagesHtml = '';
             if (data.isPdf) {
-                 mainVisualHtml = `
-                    <div class="w-full h-64 bg-slate-50 border border-slate-200 rounded-xl mb-8 flex items-center justify-center">
+                 imagesHtml = `
+                    <div class="w-full h-96 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-center sticky top-0">
                         <div class="text-center">
-                            <i data-lucide="file-text" class="w-12 h-12 text-slate-400 mx-auto mb-2"></i>
-                            <span class="text-slate-500 font-mono">PDF Document Preview</span>
+                            <i data-lucide="file-text" class="w-16 h-16 text-slate-400 mx-auto mb-4"></i>
+                            <span class="text-slate-500 font-mono block">PDF Document Preview</span>
+                            <a href="${data.image}" download class="mt-4 inline-flex items-center gap-2 px-6 py-2 bg-cyan-600 text-white rounded-md font-bold hover:bg-cyan-700 transition-colors">
+                                <i data-lucide="download" class="w-4 h-4"></i> Download
+                            </a>
                         </div>
                     </div>`;
             } else {
-                // UPDATED: Increased height to md:h-[600px] and h-96 for more prominence
-                mainVisualHtml = `
-                    <div class="w-full h-96 md:h-[600px] bg-slate-100 rounded-xl mb-12 overflow-hidden border border-slate-200 shadow-sm">
-                        <img src="${data.image}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/800x600/f1f5f9/475569?text=Project+Image'">
-                    </div>`;
-            }
-
-            // Build Gallery Grid (if gallery exists)
-            let galleryHtml = '';
-            if (data.gallery && data.gallery.length > 0) {
-                // Gallery images will naturally become larger because the container max-w is now 7xl
-                galleryHtml = `
-                    <h3 class="text-2xl font-bold text-slate-900 mb-6 mt-12 border-t border-slate-200 pt-8">Project Gallery</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        ${data.gallery.map(img => `
-                            <div class="group relative aspect-video bg-slate-100 rounded-lg overflow-hidden border border-slate-200 cursor-pointer shadow-sm hover:shadow-md transition-all">
-                                <img src="${img}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://placehold.co/400x300/f1f5f9/475569?text=Gallery+Image'">
-                            </div>
-                        `).join('')}
+                imagesHtml = allImages.map(img => `
+                    <div class="w-full mb-8 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
+                        <img src="${img}" class="w-full h-auto object-cover block" onerror="this.src='https://placehold.co/800x600/f1f5f9/475569?text=Project+Image'">
                     </div>
-                `;
+                `).join('');
             }
 
+            // Build Layout
             const html = `
-                <span class="text-cyan-600 font-mono text-sm uppercase tracking-widest mb-2 block font-semibold">${data.category}</span>
-                <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-8">${data.title}</h1>
-                ${mainVisualHtml}
-                <div class="prose prose-slate max-w-none prose-lg text-slate-600">
-                    ${data.description}
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    <!-- Left Column: Content (Sticky) -->
+                    <div class="lg:col-span-4">
+                        <div class="lg:sticky lg:top-8">
+                            <span class="text-cyan-600 font-mono text-sm uppercase tracking-widest mb-3 block font-semibold">${data.category}</span>
+                            <h1 class="text-3xl md:text-4xl font-bold text-slate-900 mb-8 leading-tight">${data.title}</h1>
+                            
+                            <div class="prose prose-slate max-w-none prose-lg text-slate-600 mb-8">
+                                ${data.description}
+                            </div>
+
+                            ${data.isPdf ? '' : `
+                                <!-- Optional: Small info box or metadata could go here -->
+                                <div class="text-sm text-slate-400 border-t border-slate-200 pt-4 mt-8">
+                                    <p>Scroll to view project gallery &rarr;</p>
+                                </div>
+                            `}
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Images (Scrollable) -->
+                    <div class="lg:col-span-8">
+                        ${imagesHtml}
+                    </div>
                 </div>
-                ${galleryHtml}
             `;
 
             contentDiv.innerHTML = html;
