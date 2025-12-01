@@ -264,7 +264,8 @@
             </button>
         </div>
 
-        <div class="container mx-auto px-6 py-20 max-w-4xl">
+        <!-- UPDATED: Widened container to max-w-7xl and reduced top padding -->
+        <div class="container mx-auto px-6 py-12 max-w-7xl">
             <!-- Back Link -->
             <button onclick="closeProject()" class="flex items-center gap-2 text-cyan-600 mb-8 hover:text-cyan-800 transition-colors font-medium">
                 <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Portfolio
@@ -397,15 +398,17 @@
                         </div>
                     </div>`;
             } else {
+                // UPDATED: Increased height to md:h-[600px] and h-96 for more prominence
                 mainVisualHtml = `
-                    <div class="w-full h-64 md:h-96 bg-slate-100 rounded-xl mb-8 overflow-hidden border border-slate-200 shadow-sm">
-                        <img src="${data.image}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/800x400/f1f5f9/475569?text=Project+Image'">
+                    <div class="w-full h-96 md:h-[600px] bg-slate-100 rounded-xl mb-12 overflow-hidden border border-slate-200 shadow-sm">
+                        <img src="${data.image}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/800x600/f1f5f9/475569?text=Project+Image'">
                     </div>`;
             }
 
             // Build Gallery Grid (if gallery exists)
             let galleryHtml = '';
             if (data.gallery && data.gallery.length > 0) {
+                // Gallery images will naturally become larger because the container max-w is now 7xl
                 galleryHtml = `
                     <h3 class="text-2xl font-bold text-slate-900 mb-6 mt-12 border-t border-slate-200 pt-8">Project Gallery</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
