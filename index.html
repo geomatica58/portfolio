@@ -367,11 +367,17 @@
                 title: "Multi-Spectral Remote Sensing",
                 category: "Remote Sensing",
                 image: "Sent_NDVI.jpg",
+                // Added gallery images from initial prompt
+                gallery: [
+                    "Sent_Std_FCC.jpg", "Sent_NDVI.jpg", "Sent_NDWI.jpg", "Sent_NDBI.jpg"
+                ],
                 description: `
                     <p class="text-xl text-slate-600 mb-6">Processing Sentinel satellite imagery to derive critical environmental indices.</p>
                     <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 mb-8">
-                        <h3 class="text-slate-900 font-bold mb-4">Technical Details</h3>
+                        <h3 class="text-slate-900 font-bold mb-4">Project Overview</h3>
                         <p class="text-slate-600 mb-4">Includes analysis of vegetation health (NDVI), water content (NDWI), and built-up density (NDBI). This project demonstrated the capability to monitor drought conditions and urban heat island effects using open-source satellite data.</p>
+                        
+                        <h4 class="text-slate-900 font-bold mb-3 mt-6 border-t border-slate-200 pt-4">Indices Analyzed</h4>
                         <div class="grid md:grid-cols-3 gap-4 mt-6">
                             <div class="bg-white p-4 rounded border border-slate-200 text-center shadow-sm">
                                 <div class="text-cyan-600 font-bold">NDVI</div>
@@ -393,12 +399,18 @@
                 title: "Temporal LULC Change",
                 category: "Change Detection",
                 image: "LULC_Comp.jpg",
+                // Added gallery images from initial prompt
+                gallery: [
+                    "LULC_2019.jpg", "LULC_2025.jpg", "LULC_Comp.jpg"
+                ],
                 description: `
                     <p class="text-xl text-slate-600 mb-6">Comprehensive Land Use Land Cover (LULC) change detection over a multi-year period.</p>
                     <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 mb-8">
-                        <h3 class="text-slate-900 font-bold mb-4">Methodology</h3>
+                        <h3 class="text-slate-900 font-bold mb-4">Project Overview</h3>
                         <p class="text-slate-600 mb-4">This project quantifies urbanization rates and vegetation loss. We employed Maximum Likelihood Classification (MLC) on multi-temporal datasets to derive change matrices.</p>
-                        <p class="text-slate-600">The results highlighted a significant conversion of agricultural land to impervious surfaces, aiding local municipal bodies in zoning regulations.</p>
+                        
+                        <h4 class="text-slate-900 font-bold mb-3 mt-6 border-t border-slate-200 pt-4">Key Outcomes</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed">The results highlighted a significant conversion of agricultural land to impervious surfaces, aiding local municipal bodies in zoning regulations.</p>
                     </div>
                 `
             },
@@ -423,11 +435,13 @@
                 title: "Historical Land Use Baseline",
                 category: "Cartography",
                 image: "FSAIIILULC_1990.jpg",
+                // Assuming just one image for now, can add more later
+                gallery: ["FSAIIILULC_1990.jpg"],
                 description: `
                     <p class="text-xl text-slate-600 mb-6">Establishing the 1990 baseline for urban sprawl analysis.</p>
                     <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 mb-8">
-                        <h3 class="text-slate-900 font-bold mb-4">Cartographic Process</h3>
-                        <p class="text-slate-600">Digitization of archival maps and early satellite imagery was performed to reconstruct the urban footprint of 1990. This serves as the 'Ground Zero' for all subsequent change detection models.</p>
+                        <h3 class="text-slate-900 font-bold mb-4">Project Overview</h3>
+                        <p class="text-slate-600 mb-4">Digitization of archival maps and early satellite imagery was performed to reconstruct the urban footprint of 1990. This serves as the 'Ground Zero' for all subsequent change detection models.</p>
                     </div>
                 `
             }
@@ -482,7 +496,7 @@
             let imagesHtml = '';
             if (data.isPdf) {
                  imagesHtml = `
-                    <div class="w-full h-96 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-center">
+                    <div class="w-full h-96 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-center sticky top-0">
                         <div class="text-center">
                             <i data-lucide="file-text" class="w-16 h-16 text-slate-400 mx-auto mb-4"></i>
                             <span class="text-slate-500 font-mono block">PDF Document Preview</span>
@@ -509,7 +523,7 @@
 
                     <!-- Right Column: Content -->
                     <div class="lg:col-span-4">
-                        <div class="relative">
+                        <div> <!-- Removed lg:sticky lg:top-8 -->
                             <span class="text-cyan-600 font-mono text-sm uppercase tracking-widest mb-2 block font-semibold">${data.category}</span>
                             <h1 class="text-3xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">${data.title}</h1>
                             
