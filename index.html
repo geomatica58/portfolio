@@ -301,11 +301,6 @@
                     <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 mb-8">
                         <h3 class="text-slate-900 font-bold mb-4">Project Overview</h3>
                         <p class="text-slate-600 mb-4">This project involved simulating the urban expansion of Pune City over a 40-year period. Land Use (LU) classification was performed for every five years from 1990 to 2025 using satellite imagery in Google Earth Engine. The MOLUSCE plugin in QGIS was then used to train a Cellular Automata - Artificial Neural Network model. This model simulated the land use for 2025, which was then validated against the actual analyzed data for the same year before simulating a future scenario for 2030.</p>
-                        <ul class="list-disc list-inside text-slate-600 space-y-2 mb-6">
-                            <li>Processed multi-temporal imagery series using Google Earth Engine.</li>
-                            <li>Applied fuzzy logic to proximity factors (Roads, CBD, Water).</li>
-                            <li>Generated growth scenarios for policy planning using MOLUSCE/QGIS.</li>
-                        </ul>
                         
                         <h4 class="text-slate-900 font-bold mb-3 mt-6 border-t border-slate-200 pt-4">Land Use Area Statistics (1990-2030)</h4>
                         <div class="overflow-x-auto">
@@ -358,19 +353,13 @@
                             <p class="text-xs text-slate-400 mt-2 italic">*Values represent Area in Square Kilometers.</p>
                         </div>
 
-                        <!-- UPDATED: Key Findings aligned in one row (Grid) -->
+                        <!-- UPDATED: Key Findings (Vertical Stack) -->
                         <h4 class="text-slate-900 font-bold mb-3 mt-6 border-t border-slate-200 pt-4">Key Findings</h4>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div class="bg-slate-50 p-3 rounded border border-slate-200 hover:border-cyan-500 transition-colors">
-                                <p class="text-sm text-slate-600 leading-relaxed">The predictive model demonstrated decent accuracy, with an percentage of correctness - <strong>77.8%</strong> and a Kappa coefficient of <strong>69.7%</strong> when validating the 2025 simulation.</p>
-                            </div>
-                            <div class="bg-slate-50 p-3 rounded border border-slate-200 hover:border-cyan-500 transition-colors">
-                                <p class="text-sm text-slate-600 leading-relaxed">Based on the results of simulation, built-up in increased from <strong>193.46 Sqkm</strong> in 2025 to <strong>215.21 Sqkm</strong> in 2030, Vegetation decreased from 130.75 Sqkm to 123.64 Sqkm during the same period.</p>
-                            </div>
-                            <div class="bg-slate-50 p-3 rounded border border-slate-200 hover:border-cyan-500 transition-colors">
-                                <p class="text-sm text-slate-600 leading-relaxed">As result of rapid urbanisation, the area of barren land decreased from <strong>176.94 Sqkm</strong> in 2025 to <strong>165.18 Sqkm</strong> in 2030.</p>
-                            </div>
-                        </div>
+                        <ul class="list-disc pl-5 text-slate-600 text-sm leading-relaxed space-y-3">
+                            <li>The predictive model demonstrated decent accuracy, with an percentage of correctness - <strong>77.8%</strong> and a Kappa coefficient of <strong>69.7%</strong> when validating the 2025 simulation.</li>
+                            <li>Based on the results of simulation, built-up in increased from <strong>193.46 Sqkm</strong> in 2025 to <strong>215.21 Sqkm</strong> in 2030, Vegetation decreased from 130.75 Sqkm to 123.64 Sqkm during the same period.</li>
+                            <li>As result of rapid urbanisation, the area of barren land decreased from <strong>176.94 Sqkm</strong> in 2025 to <strong>165.18 Sqkm</strong> in 2030.</li>
+                        </ul>
                     </div>
                 `
             },
