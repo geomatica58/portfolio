@@ -300,12 +300,94 @@
                     <p class="text-xl text-slate-600 mb-6">Advanced simulation of urban expansion trends using Cellular Automata (CA) and proximity constraints.</p>
                     <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 mb-8">
                         <h3 class="text-slate-900 font-bold mb-4">Project Overview</h3>
-                        <p class="text-slate-600 mb-4">This study analyzes historical data to project future growth patterns. By utilizing Markov Chain analysis combined with Cellular Automata, we were able to predict probable zones of urban encroachment with significant accuracy compared to recent trends.</p>
-                        <ul class="list-disc list-inside text-slate-600 space-y-2">
-                            <li>Processed multi-temporal imagery series.</li>
+                        <p class="text-slate-600 mb-4">This project involved simulating the urban expansion of Pune City over a 40-year period. Land Use (LU) classification was performed for every five years from 1990 to 2025 using satellite imagery in Google Earth Engine. The MOLUSCE plugin in QGIS was then used to train a Cellular Automata - Artificial Neural Network model. This model simulated the land use for 2025, which was then validated against the actual analyzed data for the same year before simulating a future scenario for 2030.</p>
+                        <ul class="list-disc list-inside text-slate-600 space-y-2 mb-6">
+                            <li>Processed multi-temporal imagery series using Google Earth Engine.</li>
                             <li>Applied fuzzy logic to proximity factors (Roads, CBD, Water).</li>
-                            <li>Generated growth scenarios for policy planning.</li>
+                            <li>Generated growth scenarios for policy planning using MOLUSCE/QGIS.</li>
                         </ul>
+                        
+                        <!-- ADDED TABLE HERE -->
+                        <h4 class="text-slate-900 font-bold mb-3 mt-6 border-t border-slate-200 pt-4">Land Use Area Statistics (1990-2030)</h4>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm text-left text-slate-600 border border-slate-200 rounded-lg overflow-hidden">
+                                <thead class="text-xs text-slate-700 uppercase bg-slate-100 border-b border-slate-200">
+                                    <tr>
+                                        <th class="px-4 py-3 font-bold">Year</th>
+                                        <th class="px-4 py-3">Built-up (km²)</th>
+                                        <th class="px-4 py-3">Vegetation (km²)</th>
+                                        <th class="px-4 py-3">Water (km²)</th>
+                                        <th class="px-4 py-3">Open Land (km²)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bg-white border-b border-slate-100 hover:bg-slate-50">
+                                        <td class="px-4 py-3 font-medium text-slate-900">1990</td>
+                                        <td class="px-4 py-3">--</td>
+                                        <td class="px-4 py-3">--</td>
+                                        <td class="px-4 py-3">--</td>
+                                        <td class="px-4 py-3">--</td>
+                                    </tr>
+                                    <tr class="bg-slate-50 border-b border-slate-100 hover:bg-white">
+                                        <td class="px-4 py-3 font-medium text-slate-900">1995</td>
+                                        <td class="px-4 py-3">--</td>
+                                        <td class="px-4 py-3">--</td>
+                                        <td class="px-4 py-3">--</td>
+                                        <td class="px-4 py-3">--</td>
+                                    </tr>
+                                    <tr class="bg-white border-b border-slate-100 hover:bg-slate-50">
+                                        <td class="px-4 py-3 font-medium text-slate-900">2000</td>
+                                        <td class="px-4 py-3">--</td>
+                                        <td class="px-4 py-3">--</td>
+                                        <td class="px-4 py-3">--</td>
+                                        <td class="px-4 py-3">--</td>
+                                    </tr>
+                                    <tr class="bg-slate-50 border-b border-slate-100 hover:bg-white">
+                                        <td class="px-4 py-3 font-medium text-slate-900">2005</td>
+                                        <td class="px-4 py-3">--</td>
+                                        <td class="px-4 py-3">--</td>
+                                        <td class="px-4 py-3">--</td>
+                                        <td class="px-4 py-3">--</td>
+                                    </tr>
+                                    <tr class="bg-white border-b border-slate-100 hover:bg-slate-50">
+                                        <td class="px-4 py-3 font-medium text-slate-900">2010</td>
+                                        <td class="px-4 py-3">--</td>
+                                        <td class="px-4 py-3">--</td>
+                                        <td class="px-4 py-3">--</td>
+                                        <td class="px-4 py-3">--</td>
+                                    </tr>
+                                    <tr class="bg-slate-50 border-b border-slate-100 hover:bg-white">
+                                        <td class="px-4 py-3 font-medium text-slate-900">2015</td>
+                                        <td class="px-4 py-3">--</td>
+                                        <td class="px-4 py-3">--</td>
+                                        <td class="px-4 py-3">--</td>
+                                        <td class="px-4 py-3">--</td>
+                                    </tr>
+                                    <tr class="bg-white border-b border-slate-100 hover:bg-slate-50">
+                                        <td class="px-4 py-3 font-medium text-slate-900">2020</td>
+                                        <td class="px-4 py-3">--</td>
+                                        <td class="px-4 py-3">--</td>
+                                        <td class="px-4 py-3">--</td>
+                                        <td class="px-4 py-3">--</td>
+                                    </tr>
+                                    <tr class="bg-slate-50 border-b border-slate-100 hover:bg-white">
+                                        <td class="px-4 py-3 font-medium text-slate-900">2025</td>
+                                        <td class="px-4 py-3">--</td>
+                                        <td class="px-4 py-3">--</td>
+                                        <td class="px-4 py-3">--</td>
+                                        <td class="px-4 py-3">--</td>
+                                    </tr>
+                                    <tr class="bg-cyan-50 border-b border-cyan-100 hover:bg-cyan-100">
+                                        <td class="px-4 py-3 font-medium text-cyan-900">2030 (Sim)</td>
+                                        <td class="px-4 py-3 font-medium text-cyan-900">--</td>
+                                        <td class="px-4 py-3 font-medium text-cyan-900">--</td>
+                                        <td class="px-4 py-3 font-medium text-cyan-900">--</td>
+                                        <td class="px-4 py-3 font-medium text-cyan-900">--</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p class="text-xs text-slate-400 mt-2 italic">*Values represent Area in Square Kilometers. 2030 data is simulated.</p>
+                        </div>
                     </div>
                 `
             },
@@ -379,9 +461,41 @@
             }
         };
 
-        // --- 2. LOGIC TO OPEN/CLOSE ---
+        // --- 2. HISTORY & NAVIGATION HANDLERS ---
         
+        // Listen for back/forward button clicks
+        window.addEventListener('popstate', (event) => {
+            if (event.state && event.state.projectId) {
+                renderProjectDetails(event.state.projectId);
+            } else {
+                renderMainView();
+            }
+        });
+
+        // Called when user clicks a project card
         function openProject(id) {
+            // Push new state to history
+            history.pushState({projectId: id}, "", `#${id}`);
+            // Render the view
+            renderProjectDetails(id);
+        }
+
+        // Called when user clicks "Back to Portfolio"
+        function closeProject() {
+            // Check if we can go back in history
+            if (history.state && history.state.projectId) {
+                history.back();
+            } else {
+                // Fallback for direct loads or other edge cases
+                renderMainView();
+                // Clear the hash without adding to history
+                history.replaceState(null, "", " ");
+            }
+        }
+
+        // --- 3. UI RENDERING FUNCTIONS (Internal) ---
+
+        function renderProjectDetails(id) {
             const data = projectsData[id];
             if(!data) return;
 
@@ -390,7 +504,7 @@
             // Gather all images (Main + Gallery)
             let allImages = [];
             if (data.image) allImages.push(data.image);
-            if (data.gallery) allImages = [...new Set([...allImages, ...data.gallery])]; // Remove dupes if main image is in gallery
+            if (data.gallery) allImages = [...new Set([...allImages, ...data.gallery])];
 
             // Build Images HTML (Left Column)
             let imagesHtml = '';
@@ -416,7 +530,6 @@
             // Build Layout
             const html = `
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                    
                     <!-- Left Column: Images (Scrollable) -->
                     <div class="lg:col-span-8">
                         ${imagesHtml}
@@ -433,7 +546,6 @@
                             </div>
 
                             ${data.isPdf ? '' : `
-                                <!-- Optional: Small info box or metadata could go here -->
                                 <div class="text-sm text-slate-400 border-t border-slate-200 pt-4 mt-6">
                                     <p>&larr; Scroll page to view project gallery</p>
                                 </div>
@@ -444,23 +556,20 @@
             `;
 
             contentDiv.innerHTML = html;
-            
-            // Re-render icons for the new content
             lucide.createIcons();
 
-            // Toggle views
             document.getElementById('main-content').classList.add('hide');
             document.getElementById('detail-view').classList.remove('hide');
             window.scrollTo(0,0);
         }
 
-        function closeProject() {
+        function renderMainView() {
             document.getElementById('detail-view').classList.add('hide');
             document.getElementById('main-content').classList.remove('hide');
             lucide.createIcons();
         }
 
-        // --- 3. FILTER LOGIC ---
+        // --- 4. FILTER LOGIC ---
         function filterProjects(category) {
             const cards = document.querySelectorAll('.project-card');
             const buttons = document.querySelectorAll('.filter-btn');
