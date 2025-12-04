@@ -155,19 +155,19 @@
                         </div>
                     </div>
 
-                    <!-- Project 2: NDVI -->
+                    <!-- Project 2: Flood Vulnerability -->
                     <div class="project-card group bg-white rounded-xl overflow-hidden border border-slate-200 hover:border-cyan-500 hover:shadow-xl hover:shadow-cyan-100 transition-all hover:-translate-y-1 flex flex-col cursor-pointer shadow-sm" 
                          data-category="Analysis" onclick="openProject('remote-sensing')">
                         <div class="h-48 w-full relative overflow-hidden bg-slate-100">
-                            <img src="Sent_NDVI.jpg" alt="NDVI" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105" onerror="this.src='https://placehold.co/600x400/f1f5f9/475569?text=Satellite+Image'">
+                            <img src="Flood_01.jpg" alt="Flood Assessment" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105" onerror="this.src='https://placehold.co/600x400/f1f5f9/475569?text=Flood+Map'">
                             <div class="absolute top-4 right-4 bg-white/90 px-2 py-1 rounded text-xs text-slate-900 font-mono border border-slate-200 shadow-sm backdrop-blur-sm">Analysis</div>
                         </div>
                         <div class="p-6 flex-1 flex flex-col">
-                            <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-cyan-600 transition-colors">Multi-Spectral Remote Sensing</h3>
-                            <p class="text-slate-600 text-sm mb-6 flex-1">Deriving environmental indices (NDVI, NDWI, NDBI) from Sentinel imagery.</p>
+                            <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-cyan-600 transition-colors">Flood Vulnerability Assessment</h3>
+                            <p class="text-slate-600 text-sm mb-6 flex-1">Comprehensive assessment of flood vulnerability using hydrological modeling and geospatial analysis.</p>
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-2 py-1 bg-slate-100 border border-slate-200 rounded text-xs text-cyan-700 font-mono">Sentinel-2</span>
-                                <span class="px-2 py-1 bg-slate-100 border border-slate-200 rounded text-xs text-cyan-700 font-mono">NDVI</span>
+                                <span class="px-2 py-1 bg-slate-100 border border-slate-200 rounded text-xs text-cyan-700 font-mono">Flood Mapping</span>
+                                <span class="px-2 py-1 bg-slate-100 border border-slate-200 rounded text-xs text-cyan-700 font-mono">Risk Assessment</span>
                             </div>
                         </div>
                     </div>
@@ -364,32 +364,47 @@
                 `
             },
             'remote-sensing': {
-                title: "Multi-Spectral Remote Sensing",
-                category: "Remote Sensing",
-                image: "Sent_NDVI.jpg",
-                // Added gallery images from initial prompt
+                title: "Flood Vulnerability Assessment",
+                category: "Analysis",
+                image: "Flood_01.jpg",
+                // Updated gallery with Flood images
                 gallery: [
-                    "Sent_Std_FCC.jpg", "Sent_NDVI.jpg", "Sent_NDWI.jpg", "Sent_NDBI.jpg"
+                    "Flood_01.jpg", "Flood_02.jpg", "Flood_03.jpg", 
+                    "Flood_04.jpg", "Flood_05.jpg", "Flood_06.jpg",
+                    "Flood_07.jpg", "Flood_08.jpg", "Flood_09.jpg",
+                    "Flood_10.jpg", "Flood_11.jpg"
                 ],
                 description: `
-                    <p class="text-xl text-slate-600 mb-6">Processing Sentinel satellite imagery to derive critical environmental indices.</p>
+                    <p class="text-xl text-slate-600 mb-6">Comprehensive assessment of flood vulnerability using hydrological modeling and geospatial analysis.</p>
                     <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 mb-8">
                         <h3 class="text-slate-900 font-bold mb-4">Project Overview</h3>
-                        <p class="text-slate-600 mb-4">Includes analysis of vegetation health (NDVI), water content (NDWI), and built-up density (NDBI). This project demonstrated the capability to monitor drought conditions and urban heat island effects using open-source satellite data.</p>
+                        <p class="text-slate-600 mb-6">This spatial analysis project evaluates flood risk across Thrissur Municipal Corporation by integrating topographical and meteorological data within Google Earth Engine. Using Weighted Overlay Analysis of five key variables - elevation, slope, flow accumulation, and rainfall (CHIRPS) - the study generates ward-level vulnerability zones to inform disaster management and resilient urban planning.</p>
                         
-                        <h4 class="text-slate-900 font-bold mb-3 mt-6 border-t border-slate-200 pt-4">Indices Analyzed</h4>
-                        <div class="grid md:grid-cols-3 gap-4 mt-6">
+                        <h4 class="text-slate-900 font-bold mb-3 mt-6 border-t border-slate-200 pt-4">Key Findings</h4>
+                        <ul class="list-disc pl-5 text-slate-600 text-sm leading-relaxed space-y-4">
+                            <li>
+                                <strong class="block text-slate-800 mb-1">Zonal Risk Classification:</strong>
+                                Successfully categorized municipal wards into five distinct vulnerability classes, isolating specific "High" and "Very High" risk zones that require prioritized administrative intervention.
+                            </li>
+                            <li>
+                                <strong class="block text-slate-800 mb-1">Temporal & Seasonal Analysis:</strong>
+                                A comparative study of the 2018 extreme flood event versus 2024 data revealed significant shifts in vulnerability patterns during the Southwest Monsoon, highlighting dynamic risk factors beyond static topography.
+                            </li>
+                        </ul>
+
+                        <h4 class="text-slate-900 font-bold mb-3 mt-8 border-t border-slate-200 pt-4">Parameters Analyzed</h4>
+                        <div class="grid md:grid-cols-3 gap-4 mt-4">
                             <div class="bg-white p-4 rounded border border-slate-200 text-center shadow-sm">
-                                <div class="text-cyan-600 font-bold">NDVI</div>
-                                <div class="text-xs text-slate-500">Vegetation Health</div>
+                                <div class="text-cyan-600 font-bold">Topography</div>
+                                <div class="text-xs text-slate-500">Elevation & Slope</div>
                             </div>
                             <div class="bg-white p-4 rounded border border-slate-200 text-center shadow-sm">
-                                <div class="text-blue-600 font-bold">NDWI</div>
-                                <div class="text-xs text-slate-500">Water Bodies</div>
+                                <div class="text-blue-600 font-bold">Hydrology</div>
+                                <div class="text-xs text-slate-500">Flow Accumulation</div>
                             </div>
                             <div class="bg-white p-4 rounded border border-slate-200 text-center shadow-sm">
-                                <div class="text-orange-600 font-bold">NDBI</div>
-                                <div class="text-xs text-slate-500">Built-Up Area</div>
+                                <div class="text-orange-600 font-bold">Climate</div>
+                                <div class="text-xs text-slate-500">CHIRPS Rainfall</div>
                             </div>
                         </div>
                     </div>
