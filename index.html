@@ -172,7 +172,7 @@
                         </div>
                     </div>
 
-                    <!-- Project 3: Site Suitability (CHANGED FROM LULC) -->
+                    <!-- Project 3: Site Suitability -->
                     <div class="project-card group bg-white rounded-xl overflow-hidden border border-slate-200 hover:border-cyan-500 hover:shadow-xl hover:shadow-cyan-100 transition-all hover:-translate-y-1 flex flex-col cursor-pointer shadow-sm" 
                          data-category="Analysis" onclick="openProject('site-suitability')">
                         <div class="h-48 w-full relative overflow-hidden bg-slate-100">
@@ -204,19 +204,19 @@
                         </div>
                     </div>
 
-                     <!-- Project 5: Historic -->
+                     <!-- Project 5: Land Use Change Detection (UPDATED) -->
                      <div class="project-card group bg-white rounded-xl overflow-hidden border border-slate-200 hover:border-cyan-500 hover:shadow-xl hover:shadow-cyan-100 transition-all hover:-translate-y-1 flex flex-col cursor-pointer shadow-sm" 
-                          data-category="Cartography" onclick="openProject('historic')">
+                          data-category="Analysis" onclick="openProject('historic')">
                         <div class="h-48 w-full relative overflow-hidden bg-slate-100">
-                            <img src="FSAIIILULC_1990.jpg" alt="Historic Map" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105" onerror="this.src='https://placehold.co/600x400/f1f5f9/475569?text=1990+Map'">
-                            <div class="absolute top-4 right-4 bg-white/90 px-2 py-1 rounded text-xs text-slate-900 font-mono border border-slate-200 shadow-sm backdrop-blur-sm">Cartography</div>
+                            <img src="Change_01.jpg" alt="Land Use Change" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105" onerror="this.src='https://placehold.co/600x400/f1f5f9/475569?text=Change+Map'">
+                            <div class="absolute top-4 right-4 bg-white/90 px-2 py-1 rounded text-xs text-slate-900 font-mono border border-slate-200 shadow-sm backdrop-blur-sm">Analysis</div>
                         </div>
                         <div class="p-6 flex-1 flex flex-col">
-                            <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-cyan-600 transition-colors">Historical Land Use Baseline</h3>
-                            <p class="text-slate-600 text-sm mb-6 flex-1">Establishing the 1990 baseline for urban sprawl analysis.</p>
+                            <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-cyan-600 transition-colors">Land Use Change Detection</h3>
+                            <p class="text-slate-600 text-sm mb-6 flex-1">Analysis of LULC changes over time using multi-temporal satellite data.</p>
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-2 py-1 bg-slate-100 border border-slate-200 rounded text-xs text-cyan-700 font-mono">Historical Data</span>
-                                <span class="px-2 py-1 bg-slate-100 border border-slate-200 rounded text-xs text-cyan-700 font-mono">Mapping</span>
+                                <span class="px-2 py-1 bg-slate-100 border border-slate-200 rounded text-xs text-cyan-700 font-mono">Change Detection</span>
+                                <span class="px-2 py-1 bg-slate-100 border border-slate-200 rounded text-xs text-cyan-700 font-mono">Remote Sensing</span>
                             </div>
                         </div>
                     </div>
@@ -458,7 +458,7 @@
                                         <td class="px-4 py-3">25</td>
                                         <td class="px-4 py-3">2</td>
                                     </tr>
-                                    <tr class="bg-slate-50 border-b border-slate-100 hover:bg-white">
+                                    <tr class="bg-slate-50 border-b border-slate-100 hover:bg-slate-50">
                                         <td class="px-4 py-3">4</td>
                                         <td class="px-4 py-3 font-medium text-slate-900">LULC</td>
                                         <td class="px-4 py-3">30</td>
@@ -508,16 +508,38 @@
                 `
             },
             'historic': {
-                title: "Historical Land Use Baseline",
-                category: "Cartography",
-                image: "FSAIIILULC_1990.jpg",
-                // Assuming just one image for now, can add more later
-                gallery: ["FSAIIILULC_1990.jpg"],
+                title: "Land Use Change Detection",
+                category: "Analysis",
+                image: "Change_01.jpg",
+                // Updated gallery with Objects to support Captions
+                gallery: [
+                    { src: "Change_01.jpg", caption: "Land Use Classification 2025" },
+                    { src: "Change_02.jpg", caption: "Land Use Classification 2019" },
+                    { src: "Change_03.jpg", caption: "Standard FCC and LU Classification 2025" },
+                    { src: "Change_04.jpg", caption: "Standard FCC and LU Classification 2019" },
+                    { src: "Change_05.jpg", caption: "Change Matrix" },
+                    { src: "Change_06.jpg", caption: "Change in LU Area" },
+                    { src: "Change_07.jpg", caption: "Area Change Visualisation" }
+                ],
                 description: `
-                    <p class="text-xl text-slate-600 mb-6">Establishing the 1990 baseline for urban sprawl analysis.</p>
+                    <p class="text-xl text-slate-600 mb-6">Analysis of LULC changes over time using multi-temporal satellite data.</p>
                     <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 mb-8">
                         <h3 class="text-slate-900 font-bold mb-4">Project Overview</h3>
-                        <p class="text-slate-600 mb-4">Digitization of archival maps and early satellite imagery was performed to reconstruct the urban footprint of 1990. This serves as the 'Ground Zero' for all subsequent change detection models.</p>
+                        <p class="text-slate-600 mb-6">This project focused on quantifying the changes in Land Use and Land Cover (LULC) within Pune City between 2019 and 2025. The Random Forest classification algorithm in Google Earth Engine was used to classify satellite imagery into categories such as urban, vegetation, water, and barren land. Accuracy assessments were then conducted to validate the classification results.</p>
+
+                        <h4 class="text-slate-900 font-bold mb-3 mt-6 border-t border-slate-200 pt-4">Change Matrix Explanation</h4>
+                        <ul class="list-disc pl-5 text-slate-600 text-sm leading-relaxed space-y-3">
+                            <li><strong>11.3%</strong> area of barren land in 2019 became built up in 2025. Proves that city is spatially expanding continuously.</li>
+                            <li><strong>21.2%</strong> of total area was built-up in 2019 and is constant in 2025 as well.</li>
+                            <li>Though there is decrease in overall area of vegetation, slight increase of <strong>3.6%</strong> area of barren land in 2019 became vegetation in 2025. This is the result of plantation drives by PMC.</li>
+                        </ul>
+
+                        <h4 class="text-slate-900 font-bold mb-3 mt-6 border-t border-slate-200 pt-4">Key Findings</h4>
+                        <ul class="list-disc pl-5 text-slate-600 text-sm leading-relaxed space-y-3">
+                            <li>Between 2019 and 2025, Pune Municipal Corporation witnessed a notable rise in built-up area from <strong>151 to 175.3 sq.km (4.8%)</strong>, primarily at the expense of vegetation, barren land, and water bodies.</li>
+                            <li>The urban expansion is attributed to rapid population growth, IT sector development in Hinjewadi and Kharadi, and ongoing infrastructure projects like Metro Rail and road widening.</li>
+                            <li>This shift indicates intensifying urbanization, stressing the need for sustainable land management.</li>
+                        </ul>
                     </div>
                 `
             }
