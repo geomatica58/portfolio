@@ -164,7 +164,7 @@
                         </div>
                         <div class="p-6 flex-1 flex flex-col">
                             <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-cyan-600 transition-colors">Flood Vulnerability Assessment</h3>
-                            <p class="text-slate-600 text-sm mb-6 flex-1">Comprehensive assessment of flood vulnerability using hydrological modeling and geospatial analysis.</p>
+                            <p class="text-slate-600 text-sm mb-6 flex-1">Comprehensive assessment of flood vulnerability using geospatial analysis.</p>
                             <div class="flex flex-wrap gap-2">
                                 <span class="px-2 py-1 bg-slate-100 border border-slate-200 rounded text-xs text-cyan-700 font-mono">Flood Mapping</span>
                                 <span class="px-2 py-1 bg-slate-100 border border-slate-200 rounded text-xs text-cyan-700 font-mono">Risk Assessment</span>
@@ -172,19 +172,19 @@
                         </div>
                     </div>
 
-                    <!-- Project 3: LULC -->
+                    <!-- Project 3: Site Suitability (CHANGED FROM LULC) -->
                     <div class="project-card group bg-white rounded-xl overflow-hidden border border-slate-200 hover:border-cyan-500 hover:shadow-xl hover:shadow-cyan-100 transition-all hover:-translate-y-1 flex flex-col cursor-pointer shadow-sm" 
-                         data-category="Analysis" onclick="openProject('lulc')">
+                         data-category="Analysis" onclick="openProject('site-suitability')">
                         <div class="h-48 w-full relative overflow-hidden bg-slate-100">
-                            <img src="LULC_Comp.jpg" alt="LULC" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105" onerror="this.src='https://placehold.co/600x400/f1f5f9/475569?text=LULC+Map'">
+                            <img src="Site_suit_result.jpg" alt="Site Suitability" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105" onerror="this.src='https://placehold.co/600x400/f1f5f9/475569?text=Site+Suitability+Map'">
                             <div class="absolute top-4 right-4 bg-white/90 px-2 py-1 rounded text-xs text-slate-900 font-mono border border-slate-200 shadow-sm backdrop-blur-sm">Analysis</div>
                         </div>
                         <div class="p-6 flex-1 flex flex-col">
-                            <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-cyan-600 transition-colors">Temporal LULC Change</h3>
-                            <p class="text-slate-600 text-sm mb-6 flex-1">Quantifying urbanization rates and vegetation loss over a multi-year period.</p>
+                            <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-cyan-600 transition-colors">Site Suitability Analysis</h3>
+                            <p class="text-slate-600 text-sm mb-6 flex-1">Multi-criteria decision analysis to identify optimal locations based on proximity and topographical factors.</p>
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-2 py-1 bg-slate-100 border border-slate-200 rounded text-xs text-cyan-700 font-mono">LULC</span>
-                                <span class="px-2 py-1 bg-slate-100 border border-slate-200 rounded text-xs text-cyan-700 font-mono">Change Detection</span>
+                                <span class="px-2 py-1 bg-slate-100 border border-slate-200 rounded text-xs text-cyan-700 font-mono">MCDA</span>
+                                <span class="px-2 py-1 bg-slate-100 border border-slate-200 rounded text-xs text-cyan-700 font-mono">AHP</span>
                             </div>
                         </div>
                     </div>
@@ -375,7 +375,7 @@
                     "Flood_10.jpg", "Flood_11.jpg"
                 ],
                 description: `
-                    <p class="text-xl text-slate-600 mb-6">Comprehensive assessment of flood vulnerability using hydrological modeling and geospatial analysis.</p>
+                    <p class="text-xl text-slate-600 mb-6">Comprehensive assessment of flood vulnerability using geospatial analysis.</p>
                     <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 mb-8">
                         <h3 class="text-slate-900 font-bold mb-4">Project Overview</h3>
                         <p class="text-slate-600 mb-6">This spatial analysis project evaluates flood risk across Thrissur Municipal Corporation by integrating topographical and meteorological data within Google Earth Engine. Using Weighted Overlay Analysis of five key variables - elevation, slope, flow accumulation, and rainfall (CHIRPS) - the study generates ward-level vulnerability zones to inform disaster management and resilient urban planning.</p>
@@ -410,22 +410,83 @@
                     </div>
                 `
             },
-            'lulc': {
-                title: "Temporal LULC Change",
-                category: "Change Detection",
-                image: "LULC_Comp.jpg",
-                // Added gallery images from initial prompt
+            'site-suitability': {
+                title: "Site Suitability Analysis",
+                category: "Analysis",
+                image: "Site_suit_result.jpg",
+                // Updated gallery with Objects to support Captions
                 gallery: [
-                    "LULC_2019.jpg", "LULC_2025.jpg", "LULC_Comp.jpg"
+                    { src: "Site_suit_result.jpg", caption: "GTF Site Suitability" },
+                    { src: "Site_suit_02.jpg", caption: "Land Use Map" },
+                    { src: "Site_suit_03.jpg", caption: "Road Proximity Map" },
+                    { src: "Site_suit_04.jpg", caption: "Water Proximity Map" },
+                    { src: "Site_suit_05.jpg", caption: "Slope Map" }
                 ],
                 description: `
-                    <p class="text-xl text-slate-600 mb-6">Comprehensive Land Use Land Cover (LULC) change detection over a multi-year period.</p>
+                    <p class="text-xl text-slate-600 mb-6">Multi-criteria decision analysis (MCDA) for optimizing site selection using AHP.</p>
                     <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 mb-8">
                         <h3 class="text-slate-900 font-bold mb-4">Project Overview</h3>
-                        <p class="text-slate-600 mb-4">This project quantifies urbanization rates and vegetation loss. We employed Maximum Likelihood Classification (MLC) on multi-temporal datasets to derive change matrices.</p>
+                        <p class="text-slate-600 mb-6">This analysis aimed to identify the most suitable locations for new Ultra-Modern Garbage Transfer Facilities (GTF) within the Bhopal Municipal Corporation area. Using a multi-criteria evaluation (MCE) approach in QGIS and Google Earth Engine, factors like proximity to roads, distance from water bodies, land use type, and slope were analyzed to generate a final suitability map.</p>
                         
-                        <h4 class="text-slate-900 font-bold mb-3 mt-6 border-t border-slate-200 pt-4">Key Outcomes</h4>
-                        <p class="text-slate-600 text-sm leading-relaxed">The results highlighted a significant conversion of agricultural land to impervious surfaces, aiding local municipal bodies in zoning regulations.</p>
+                        <h4 class="text-slate-900 font-bold mb-3 mt-6 border-t border-slate-200 pt-4">Weightage and Example Calculation</h4>
+                        <div class="overflow-x-auto mb-6">
+                            <table class="w-full text-sm text-left text-slate-600 border border-slate-200 rounded-lg overflow-hidden">
+                                <thead class="text-xs text-slate-700 uppercase bg-slate-100 border-b border-slate-200">
+                                    <tr>
+                                        <th class="px-4 py-3 font-bold">Sr No</th>
+                                        <th class="px-4 py-3">Class</th>
+                                        <th class="px-4 py-3">Weightage (%)</th>
+                                        <th class="px-4 py-3">Ex Pixel value</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bg-white border-b border-slate-100 hover:bg-slate-50">
+                                        <td class="px-4 py-3">1</td>
+                                        <td class="px-4 py-3 font-medium text-slate-900">Slope</td>
+                                        <td class="px-4 py-3">15</td>
+                                        <td class="px-4 py-3">4</td>
+                                    </tr>
+                                    <tr class="bg-slate-50 border-b border-slate-100 hover:bg-white">
+                                        <td class="px-4 py-3">2</td>
+                                        <td class="px-4 py-3 font-medium text-slate-900">Waterway</td>
+                                        <td class="px-4 py-3">30</td>
+                                        <td class="px-4 py-3">3</td>
+                                    </tr>
+                                    <tr class="bg-white border-b border-slate-100 hover:bg-slate-50">
+                                        <td class="px-4 py-3">3</td>
+                                        <td class="px-4 py-3 font-medium text-slate-900">Road</td>
+                                        <td class="px-4 py-3">25</td>
+                                        <td class="px-4 py-3">2</td>
+                                    </tr>
+                                    <tr class="bg-slate-50 border-b border-slate-100 hover:bg-white">
+                                        <td class="px-4 py-3">4</td>
+                                        <td class="px-4 py-3 font-medium text-slate-900">LULC</td>
+                                        <td class="px-4 py-3">30</td>
+                                        <td class="px-4 py-3">4</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="bg-white p-5 rounded border border-slate-200 text-sm text-slate-600 shadow-sm">
+                            <p class="mb-2 font-medium text-slate-800">Calculation Example:</p>
+                            <p class="mb-2">For a pixel with:</p>
+                            <ul class="list-disc list-inside mb-4 ml-2 space-y-1 text-slate-500">
+                                <li>Slope class = 4</li>
+                                <li>LULC class = 3</li>
+                                <li>Water proximity class = 2</li>
+                                <li>Road proximity class = 4</li>
+                            </ul>
+                            <p class="mb-2 font-mono text-xs bg-slate-100 p-2 rounded">Result = 4*0.15 + 3*0.30 + 2*0.25 + 4*0.30</p>
+                            <p class="text-lg text-cyan-700 mt-2"><strong>Suitability Score = 3.2</strong></p>
+                        </div>
+
+                        <h4 class="text-slate-900 font-bold mb-3 mt-8 border-t border-slate-200 pt-4">Key Findings</h4>
+                        <ul class="list-disc pl-5 text-slate-600 text-sm leading-relaxed space-y-3">
+                            <li>Generated a suitability index map highlighting Most Suitable, Less Suitable, Moderately Suitable, and Least Suitable zones.</li>
+                            <li>Pinpointed specific parcels of land that meet all the necessary criteria for GTF facility placement.</li>
+                            <li>Provided a data-driven basis for municipal decision-making on waste management infrastructure.</li>
+                        </ul>
                     </div>
                 `
             },
@@ -504,8 +565,31 @@
             
             // Gather all images (Main + Gallery)
             let allImages = [];
-            if (data.image) allImages.push(data.image);
-            if (data.gallery) allImages = [...new Set([...allImages, ...data.gallery])];
+            
+            // Helper to normalize image objects
+            const normalizeImage = (img) => {
+                return typeof img === 'string' ? { src: img, caption: '' } : img;
+            };
+
+            // Add main image if not in gallery
+            if (data.image) {
+                allImages.push({ src: data.image, caption: '' });
+            }
+            
+            // Add gallery images (deduping logic adjusted for objects)
+            if (data.gallery) {
+                data.gallery.forEach(item => {
+                    const normItem = normalizeImage(item);
+                    // Avoid duplicates if main image matches a gallery image src
+                    if (!allImages.some(existing => existing.src === normItem.src)) {
+                        allImages.push(normItem);
+                    } else if (normItem.caption) {
+                        // If it's a dupe but has a caption, update the existing entry with the caption
+                        const index = allImages.findIndex(existing => existing.src === normItem.src);
+                        allImages[index].caption = normItem.caption;
+                    }
+                });
+            }
 
             // Build Images HTML (Left Column)
             let imagesHtml = '';
@@ -522,8 +606,11 @@
                     </div>`;
             } else {
                 imagesHtml = allImages.map(img => `
-                    <div class="w-full mb-4 rounded-xl overflow-hidden border border-slate-200 shadow-sm">
-                        <img src="${img}" class="w-full h-auto object-cover block" onerror="this.src='https://placehold.co/800x600/f1f5f9/475569?text=Project+Image'">
+                    <div class="w-full mb-8">
+                        <div class="rounded-xl overflow-hidden border border-slate-200 shadow-sm">
+                            <img src="${img.src}" class="w-full h-auto object-cover block" onerror="this.src='https://placehold.co/800x600/f1f5f9/475569?text=Project+Image'">
+                        </div>
+                        ${img.caption ? `<p class="text-center text-sm text-slate-500 mt-2 font-medium">${img.caption}</p>` : ''}
                     </div>
                 `).join('');
             }
