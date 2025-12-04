@@ -138,7 +138,7 @@
                 <!-- Project Grid -->
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="project-grid">
                     
-                    <!-- Project 1: Urban Sim -->
+                    <!-- 1. Modelling Urban Expansion -->
                     <div class="project-card group bg-white rounded-xl overflow-hidden border border-slate-200 hover:border-cyan-500 hover:shadow-xl hover:shadow-cyan-100 transition-all hover:-translate-y-1 flex flex-col cursor-pointer shadow-sm" 
                          data-category="Analysis" onclick="openProject('urban-sim')">
                         <div class="h-48 w-full relative overflow-hidden bg-slate-100">
@@ -155,7 +155,7 @@
                         </div>
                     </div>
 
-                    <!-- Project 2: Flood Vulnerability -->
+                    <!-- 2. Flood Vulnerability Assessment -->
                     <div class="project-card group bg-white rounded-xl overflow-hidden border border-slate-200 hover:border-cyan-500 hover:shadow-xl hover:shadow-cyan-100 transition-all hover:-translate-y-1 flex flex-col cursor-pointer shadow-sm" 
                          data-category="Analysis" onclick="openProject('remote-sensing')">
                         <div class="h-48 w-full relative overflow-hidden bg-slate-100">
@@ -172,7 +172,7 @@
                         </div>
                     </div>
 
-                    <!-- Project 3: Site Suitability -->
+                    <!-- 3. Site Suitability Analysis (MOVED TO POSITION 3) -->
                     <div class="project-card group bg-white rounded-xl overflow-hidden border border-slate-200 hover:border-cyan-500 hover:shadow-xl hover:shadow-cyan-100 transition-all hover:-translate-y-1 flex flex-col cursor-pointer shadow-sm" 
                          data-category="Analysis" onclick="openProject('site-suitability')">
                         <div class="h-48 w-full relative overflow-hidden bg-slate-100">
@@ -189,23 +189,8 @@
                         </div>
                     </div>
 
-                    <!-- Project 4: PDF -->
+                    <!-- 4. Land Use Change Detection (MOVED TO POSITION 4) -->
                     <div class="project-card group bg-white rounded-xl overflow-hidden border border-slate-200 hover:border-cyan-500 hover:shadow-xl hover:shadow-cyan-100 transition-all hover:-translate-y-1 flex flex-col cursor-pointer shadow-sm" 
-                         data-category="Resources" onclick="openProject('vector-framework')">
-                        <div class="h-48 w-full relative overflow-hidden bg-slate-50 flex flex-col items-center justify-center text-slate-400">
-                             <i data-lucide="file-text" class="w-12 h-12 mb-2 text-cyan-600/50"></i>
-                             <span class="text-xs font-mono text-slate-500">PDF DOCUMENT</span>
-                            <div class="absolute top-4 right-4 bg-white/90 px-2 py-1 rounded text-xs text-slate-900 font-mono border border-slate-200 shadow-sm backdrop-blur-sm">Resources</div>
-                        </div>
-                        <div class="p-6 flex-1 flex flex-col">
-                            <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-cyan-600 transition-colors">Vector Digitization Framework</h3>
-                            <p class="text-slate-600 text-sm mb-6 flex-1">A comprehensive guide to GIS digitization standards, topology rules, and data structuring.</p>
-                            <span class="text-cyan-600 text-sm font-bold flex items-center gap-1"><i data-lucide="download" class="w-4 h-4"></i> Download PDF</span>
-                        </div>
-                    </div>
-
-                     <!-- Project 5: Land Use Change Detection (UPDATED) -->
-                     <div class="project-card group bg-white rounded-xl overflow-hidden border border-slate-200 hover:border-cyan-500 hover:shadow-xl hover:shadow-cyan-100 transition-all hover:-translate-y-1 flex flex-col cursor-pointer shadow-sm" 
                           data-category="Analysis" onclick="openProject('historic')">
                         <div class="h-48 w-full relative overflow-hidden bg-slate-100">
                             <img src="Change_01.jpg" alt="Land Use Change" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105" onerror="this.src='https://placehold.co/600x400/f1f5f9/475569?text=Change+Map'">
@@ -217,6 +202,23 @@
                             <div class="flex flex-wrap gap-2">
                                 <span class="px-2 py-1 bg-slate-100 border border-slate-200 rounded text-xs text-cyan-700 font-mono">Change Detection</span>
                                 <span class="px-2 py-1 bg-slate-100 border border-slate-200 rounded text-xs text-cyan-700 font-mono">Remote Sensing</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. Vectorizing Pune City (MOVED TO POSITION 5) -->
+                    <div class="project-card group bg-white rounded-xl overflow-hidden border border-slate-200 hover:border-cyan-500 hover:shadow-xl hover:shadow-cyan-100 transition-all hover:-translate-y-1 flex flex-col cursor-pointer shadow-sm" 
+                         data-category="Cartography" onclick="openProject('vector-framework')">
+                        <div class="h-48 w-full relative overflow-hidden bg-slate-100">
+                             <img src="Pune_Vector_01.jpg" alt="Pune Vector Map" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105" onerror="this.src='https://placehold.co/600x400/f1f5f9/475569?text=Vector+Map'">
+                            <div class="absolute top-4 right-4 bg-white/90 px-2 py-1 rounded text-xs text-slate-900 font-mono border border-slate-200 shadow-sm backdrop-blur-sm">Cartography</div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-cyan-600 transition-colors">Vectorizing Pune City</h3>
+                            <p class="text-slate-600 text-sm mb-6 flex-1">A comprehensive vector basemap creation project covering road networks, building footprints, and administrative boundaries.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-slate-100 border border-slate-200 rounded text-xs text-cyan-700 font-mono">Digitization</span>
+                                <span class="px-2 py-1 bg-slate-100 border border-slate-200 rounded text-xs text-cyan-700 font-mono">QGIS</span>
                             </div>
                         </div>
                     </div>
@@ -491,19 +493,47 @@
                 `
             },
             'vector-framework': {
-                title: "Vector Digitization Framework",
-                category: "Resources",
-                image: "Intro_GIS.pdf",
-                isPdf: true,
+                title: "Vectorizing Pune City: A Comprehensive Basemap",
+                category: "Cartography",
+                // Placeholder image from your instruction about deploying template
+                image: "Pune_Vector_01.jpg", 
+                gallery: [
+                    { src: "Pune_Vector_01.jpg", caption: "Road Network Digitization" },
+                    { src: "Pune_Vector_02.jpg", caption: "Building Footprints" },
+                    { src: "Pune_Vector_03.jpg", caption: "Administrative Boundaries" },
+                    { src: "Pune_Vector_04.jpg", caption: "Land Use Parcels" }
+                ],
                 description: `
-                    <p class="text-xl text-slate-600 mb-6">A technical resource detailing best practices for vectorization and topology rules.</p>
-                    <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 mb-8 flex flex-col items-center justify-center text-center">
-                        <i data-lucide="file-text" class="w-16 h-16 text-cyan-600 mb-4"></i>
-                        <h3 class="text-slate-900 font-bold mb-2">Download Resource</h3>
-                        <p class="text-slate-600 mb-6 max-w-md">This PDF guide covers layer structuring, snapping environments, and attribute table management in QGIS.</p>
-                        <a href="Intro_GIS.pdf" download class="px-8 py-3 bg-cyan-600 text-white rounded-md font-bold hover:bg-cyan-700 transition-colors flex items-center gap-2 shadow-lg shadow-cyan-600/20">
-                            <i data-lucide="download" class="w-5 h-5"></i> Download PDF
-                        </a>
+                    <p class="text-xl text-slate-600 mb-6">A detailed basemap project involving manual digitization of urban and natural features.</p>
+                    <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 mb-8">
+                        <h3 class="text-slate-900 font-bold mb-4">Project Overview</h3>
+                        <p class="text-slate-600 mb-4">This foundational project involved the creation of a detailed basemap for Pune City through manual digitisation in QGIS. Key urban and natural features, such as road networks, building footprints, water bodies, and green spaces, were traced from satellite imagery to produce accurate vector data. The project also included the generation of contour lines from elevation data to create a comprehensive topographical map.</p>
+                        
+                        <h4 class="text-slate-900 font-bold mb-3 mt-6 border-t border-slate-200 pt-4">Key Findings</h4>
+                        <ul class="list-disc pl-5 text-slate-600 text-sm leading-relaxed space-y-3">
+                            <li>Produced a high-quality, accurate vector basemap essential for further geospatial analysis.</li>
+                            <li>Developed a detailed contour map illustrating the topography of the city.</li>
+                            <li>Demonstrated proficiency in core GIS techniques, including digitizing, data creation, and cartographic representation.</li>
+                        </ul>
+
+                        <h4 class="text-slate-900 font-bold mb-3 mt-6 border-t border-slate-200 pt-4">Technical Specifications</h4>
+                        <ul class="list-disc pl-5 text-slate-600 text-sm leading-relaxed space-y-3">
+                            <li><strong>Data Source:</strong> High-resolution satellite imagery and OpenStreetMap reference data.</li>
+                            <li><strong>Tools Used:</strong> QGIS for digitization and topology validation.</li>
+                            <li><strong>Topology Rules:</strong> Applied strict rules (No Overlap, Must Not Have Gaps) to ensure data integrity.</li>
+                        </ul>
+
+                        <h4 class="text-slate-900 font-bold mb-3 mt-6 border-t border-slate-200 pt-4">Key Deliverables</h4>
+                        <div class="grid md:grid-cols-2 gap-4 mt-4">
+                            <div class="bg-white p-4 rounded border border-slate-200 shadow-sm">
+                                <div class="font-bold text-slate-800 mb-1">Road Network</div>
+                                <p class="text-xs text-slate-500">Classified by hierarchy (Arterial, Sub-arterial, Local).</p>
+                            </div>
+                            <div class="bg-white p-4 rounded border border-slate-200 shadow-sm">
+                                <div class="font-bold text-slate-800 mb-1">Building Footprints</div>
+                                <p class="text-xs text-slate-500">Polygonized structures for density analysis.</p>
+                            </div>
+                        </div>
                     </div>
                 `
             },
