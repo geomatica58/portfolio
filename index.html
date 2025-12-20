@@ -3,11 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geomatica | Spatial Intelligence</title>
+    
+    <!-- SEO & Metadata -->
+    <title>Geomatica | Spatial Intelligence Consultancy</title>
+    <meta name="description" content="Freelance GIS Consultancy by Abhijeet Pawar. Specializing in Urban Modelling, Flood Risk Assessment, and Web GIS solutions for planners and developers.">
+    <meta name="keywords" content="GIS Freelancer, Urban Planning, Remote Sensing, QGIS, Web Maps, Spatial Analysis, Pune, India">
+    <meta name="author" content="Abhijeet Pawar">
+
     <!-- 1. Tailwind CSS (Styling) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- 2. Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- 3. Leaflet CSS & JS (For Web Map Demo) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
     <style>
         /* Smooth scrolling */
         html { scroll-behavior: smooth; }
@@ -20,6 +30,9 @@
         ::-webkit-scrollbar-track { background: #f1f5f9; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #0891b2; }
+
+        /* Map Container */
+        #map { height: 100%; width: 100%; border-radius: 0.5rem; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-700 font-sans selection:bg-cyan-200 selection:text-slate-900">
@@ -36,8 +49,9 @@
                 </div>
                 <div class="hidden md:flex gap-8 text-sm font-medium text-slate-600">
                     <a href="#services" class="hover:text-cyan-600 transition-colors">Services</a>
+                    <a href="#process" class="hover:text-cyan-600 transition-colors">Process</a>
                     <a href="#portfolio" class="hover:text-cyan-600 transition-colors">Portfolio</a>
-                    <a href="#contact" class="hover:text-cyan-600 transition-colors">Contact</a>
+                    <a href="#about" class="hover:text-cyan-600 transition-colors">About</a>
                 </div>
                 <a href="#contact" class="hidden md:block px-6 py-2 bg-cyan-600 text-white rounded-md font-bold hover:bg-cyan-700 transition-colors shadow-lg shadow-cyan-600/20">
                     Hire Geomatica
@@ -55,16 +69,15 @@
             </div>
 
             <div class="container mx-auto relative z-10 max-w-4xl text-center">
-                <!-- Removed "Open for Commissions" badge here -->
                 <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 leading-tight mb-8">
-                    Turning Complex Data into <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-600">Spatial Intelligence.</span>
+                    Helping Organizations Make <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-600">Smarter Decisions</span> with Location Intelligence.
                 </h1>
                 <p class="text-xl text-slate-600 mb-10 max-w-2xl mx-auto">
-                    Geomatica is a specialized freelance consultancy bridging the gap between raw spatial data and actionable insights through modern GIS analysis and web mapping.
+                    Geomatica transforms complex spatial data into clear, actionable insights for Urban Planners, Developers, and Policy Makers.
                 </p>
                 <div class="flex flex-col md:flex-row gap-4 justify-center">
-                    <a href="#portfolio" class="px-8 py-3 bg-cyan-600 text-white rounded-md font-bold hover:bg-cyan-700 transition-colors shadow-lg shadow-cyan-600/20">View Projects</a>
-                    <a href="#services" class="px-8 py-3 border border-slate-300 text-slate-600 rounded-md font-bold hover:border-cyan-600 hover:text-cyan-600 transition-colors bg-white">Services</a>
+                    <a href="#portfolio" class="px-8 py-3 bg-cyan-600 text-white rounded-md font-bold hover:bg-cyan-700 transition-colors shadow-lg shadow-cyan-600/20">View Case Studies</a>
+                    <a href="#contact" class="px-8 py-3 border border-slate-300 text-slate-600 rounded-md font-bold hover:border-cyan-600 hover:text-cyan-600 transition-colors bg-white">Discuss Your Project</a>
                 </div>
             </div>
         </section>
@@ -114,8 +127,41 @@
             </div>
         </section>
 
+        <!-- Process Section -->
+        <section id="process" class="py-24 bg-white border-y border-slate-200">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold text-slate-900 mb-12">How We Work</h2>
+                <div class="grid md:grid-cols-3 gap-12 relative">
+                    <!-- Connector Line (Desktop) -->
+                    <div class="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-slate-200 z-0"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="w-24 h-24 bg-white border-4 border-cyan-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <span class="text-2xl font-bold text-cyan-600">01</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-3">Discovery</h3>
+                        <p class="text-slate-600 text-sm">We define your spatial problem, assess available data, and determine the technical roadmap.</p>
+                    </div>
+                    <div class="relative z-10">
+                        <div class="w-24 h-24 bg-white border-4 border-cyan-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <span class="text-2xl font-bold text-cyan-600">02</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-3">Analysis & Modelling</h3>
+                        <p class="text-slate-600 text-sm">Processing satellite imagery and vector data using advanced algorithms (RF, AHP, CA).</p>
+                    </div>
+                    <div class="relative z-10">
+                        <div class="w-24 h-24 bg-white border-4 border-cyan-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <span class="text-2xl font-bold text-cyan-600">03</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-3">Delivery</h3>
+                        <p class="text-slate-600 text-sm">You receive interactive web maps, high-res layouts, and actionable technical reports.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Portfolio Section -->
-        <section id="portfolio" class="py-24 px-6 bg-white">
+        <section id="portfolio" class="py-24 px-6 bg-slate-50">
             <div class="container mx-auto">
                 <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
                     <div>
@@ -169,7 +215,7 @@
                         </div>
                     </div>
 
-                    <!-- 3. Site Suitability Analysis (MOVED TO POSITION 3) -->
+                    <!-- 3. Site Suitability Analysis -->
                     <div class="project-card group bg-white rounded-xl overflow-hidden border border-slate-200 hover:border-cyan-500 hover:shadow-xl hover:shadow-cyan-100 transition-all hover:-translate-y-1 flex flex-col cursor-pointer shadow-sm" 
                          data-category="Analysis" onclick="openProject('site-suitability')">
                         <div class="h-48 w-full relative overflow-hidden bg-slate-100">
@@ -186,7 +232,7 @@
                         </div>
                     </div>
 
-                    <!-- 4. Land Use Change Detection (MOVED TO POSITION 4) -->
+                    <!-- 4. Land Use Change Detection -->
                     <div class="project-card group bg-white rounded-xl overflow-hidden border border-slate-200 hover:border-cyan-500 hover:shadow-xl hover:shadow-cyan-100 transition-all hover:-translate-y-1 flex flex-col cursor-pointer shadow-sm" 
                           data-category="Analysis" onclick="openProject('historic')">
                         <div class="h-48 w-full relative overflow-hidden bg-slate-100">
@@ -203,7 +249,7 @@
                         </div>
                     </div>
 
-                    <!-- 5. Vectorizing Pune City (MOVED TO POSITION 5) -->
+                    <!-- 5. Vectorizing Pune City -->
                     <div class="project-card group bg-white rounded-xl overflow-hidden border border-slate-200 hover:border-cyan-500 hover:shadow-xl hover:shadow-cyan-100 transition-all hover:-translate-y-1 flex flex-col cursor-pointer shadow-sm" 
                          data-category="Cartography" onclick="openProject('vector-framework')">
                         <div class="h-48 w-full relative overflow-hidden bg-slate-100">
@@ -224,6 +270,34 @@
             </div>
         </section>
 
+        <!-- About/Profile Section -->
+        <section id="about" class="py-24 bg-white border-t border-slate-200">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <div class="flex flex-col md:flex-row gap-12 items-center">
+                    <div class="w-48 h-48 flex-shrink-0">
+                        <div class="w-full h-full rounded-full overflow-hidden border-4 border-slate-100 shadow-xl relative bg-slate-200">
+                            <img src="profile.jpg" alt="Abhijeet Pawar" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x400/f1f5f9/475569?text=AP'">
+                        </div>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <span class="text-cyan-600 font-bold uppercase tracking-widest text-sm mb-2 block">Meet the Analyst</span>
+                        <h2 class="text-3xl font-bold text-slate-900 mb-4">Abhijeet Pawar</h2>
+                        <p class="text-slate-600 mb-6 leading-relaxed">
+                            I am a City Professional and GIS Specialist currently pursuing an MA in Cities and Governance at the Tata Institute of Social Sciences (TISS). With a strong foundation in Public Administration and geospatial analytics, I bridge the gap between technical data and public policy.
+                        </p>
+                        <p class="text-slate-600 mb-6 leading-relaxed">
+                            My expertise lies in translating satellite imagery into actionable insights for urban planning, disaster management, and environmental monitoring.
+                        </p>
+                        <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                            <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-sm font-semibold">TISS Hyderabad</span>
+                            <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-sm font-semibold">Public Administration</span>
+                            <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-sm font-semibold">Spatial Data Science</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Contact Section -->
         <section id="contact" class="py-24 px-6 relative bg-slate-50">
             <div class="container mx-auto max-w-4xl bg-white p-8 md:p-12 rounded-2xl border border-slate-200 text-center relative z-10 shadow-lg shadow-slate-200/50">
@@ -235,11 +309,15 @@
                     <a href="mailto:geomatica58@gmail.com" class="flex items-center gap-3 bg-cyan-600 text-white px-8 py-4 rounded-lg font-bold hover:bg-cyan-700 transition-colors w-full md:w-auto justify-center shadow-lg shadow-cyan-600/20">
                         <i data-lucide="mail" class="w-5 h-5"></i> Send an Email
                     </a>
-                    <div class="flex gap-4">
-                        <a href="https://www.linkedin.com/in/abhijeetpawar1305/" target="_blank" class="p-4 bg-slate-100 rounded-lg text-slate-600 hover:text-cyan-700 hover:bg-cyan-50 transition-colors border border-slate-200">
-                            <i data-lucide="linkedin" class="w-5 h-5"></i>
-                        </a>
-                    </div>
+                    <!-- Calendly Placeholder Link -->
+                    <a href="https://calendly.com" target="_blank" class="flex items-center gap-3 bg-white border border-slate-300 text-slate-700 px-8 py-4 rounded-lg font-bold hover:border-cyan-600 hover:text-cyan-600 transition-colors w-full md:w-auto justify-center">
+                        <i data-lucide="calendar" class="w-5 h-5"></i> Book a Free Strategy Call
+                    </a>
+                </div>
+                <div class="flex justify-center gap-6 mt-8">
+                    <a href="https://www.linkedin.com/in/abhijeetpawar1305/" target="_blank" class="text-slate-400 hover:text-cyan-600 transition-colors">
+                        <i data-lucide="linkedin" class="w-6 h-6"></i>
+                    </a>
                 </div>
             </div>
         </section>
@@ -273,6 +351,40 @@
             <!-- Content Container -->
             <div id="detail-content" class="fade-in">
                 <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MAP MODAL (Hidden by Default) ================= -->
+    <div id="map-modal" class="fixed inset-0 bg-black/50 z-[150] hide flex items-center justify-center p-4 md:p-8">
+        <div class="bg-white w-full h-full max-w-7xl rounded-xl shadow-2xl overflow-hidden relative flex flex-col">
+            <!-- Modal Header -->
+            <div class="p-4 border-b border-slate-200 flex justify-between items-center bg-slate-50">
+                <h3 class="font-bold text-slate-800 flex items-center gap-2">
+                    <i data-lucide="map" class="w-5 h-5 text-cyan-600"></i>
+                    Interactive Web Map Demo
+                </h3>
+                <button onclick="closeMap()" class="p-2 hover:bg-slate-200 rounded-full transition-colors">
+                    <i data-lucide="x" class="w-5 h-5 text-slate-500"></i>
+                </button>
+            </div>
+            
+            <!-- Map Area -->
+            <div class="flex-1 relative">
+                <div id="map"></div>
+                <!-- Floating Info Panel -->
+                <div class="absolute top-4 right-4 z-[400] bg-white/90 backdrop-blur-sm p-4 rounded shadow-lg border border-slate-200 max-w-xs text-sm">
+                    <h4 class="font-bold text-slate-900 mb-1">Vector Data Visualization</h4>
+                    <p class="text-slate-600 mb-2">Simulated vector layers for Pune City digitization.</p>
+                    <div class="flex items-center gap-2 mb-1">
+                        <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                        <span class="text-xs">Road Network</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <div class="w-3 h-3 border-2 border-red-500 bg-red-500/20"></div>
+                        <span class="text-xs">AOI Boundary</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -492,9 +604,9 @@
             'vector-framework': {
                 title: "Vectorizing Pune City: A Comprehensive Basemap",
                 category: "Cartography",
-                // Updated main image
-                image: "Intro_GIS_1.jpg", 
-                // Updated gallery with new images and captions
+                // Placeholder image from your instruction about deploying template
+                image: "Intro_GIS_1.jpg",
+                hasMap: true, // Enable Map Feature
                 gallery: [
                     { src: "Intro_GIS_1.jpg", caption: "" },
                     { src: "Intro_GIS_2.jpg", caption: "Reference Map of Pune" },
@@ -512,6 +624,12 @@
                         <h3 class="text-slate-900 font-bold mb-4">Project Overview</h3>
                         <p class="text-slate-600 mb-4">This foundational project involved the creation of a detailed basemap for Pune City through manual digitisation in QGIS. Key urban and natural features, such as road networks, building footprints, water bodies, and green spaces, were traced from satellite imagery to produce accurate vector data. The project also included the generation of contour lines from elevation data to create a comprehensive topographical map.</p>
                         
+                        <div class="mb-8">
+                            <button onclick="openMap()" class="inline-flex items-center gap-2 px-6 py-3 bg-cyan-600 text-white rounded-md font-bold hover:bg-cyan-700 transition-colors shadow-lg shadow-cyan-600/20 w-full md:w-auto justify-center">
+                                <i data-lucide="map" class="w-5 h-5"></i> View Interactive Map
+                            </button>
+                        </div>
+
                         <h4 class="text-slate-900 font-bold mb-3 mt-6 border-t border-slate-200 pt-4">Key Findings</h4>
                         <ul class="list-disc pl-5 text-slate-600 text-sm leading-relaxed space-y-3">
                             <li>Produced a high-quality, accurate vector basemap essential for further geospatial analysis.</li>
@@ -736,6 +854,80 @@
                     card.classList.remove('fade-in');
                 }
             });
+        }
+
+        // --- 5. LEAFLET MAP LOGIC (Demo) ---
+        let map; // Global map variable
+
+        function openMap() {
+            const modal = document.getElementById('map-modal');
+            modal.classList.remove('hide');
+            
+            // Check if map is already initialized to prevent re-initialization error
+            if (map) return;
+
+            // Wait a slight tick for modal to display before initializing Leaflet
+            setTimeout(() => {
+                map = L.map('map').setView([18.5204, 73.8567], 12); // Pune Coordinates
+
+                // Add dark basemap for "digitization" feel
+                L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                    subdomains: 'abcd',
+                    maxZoom: 20
+                }).addTo(map);
+
+                // --- Simulated Vector Data (GeoJSON) ---
+                
+                // 1. Polygon: Simulated City Boundary (Red Outline)
+                const boundaryStyle = {
+                    "color": "#ef4444", // Tailwind red-500
+                    "weight": 2,
+                    "opacity": 0.8,
+                    "fillOpacity": 0.1
+                };
+                
+                // Simplified Pune Polygon (approximate)
+                const puneBoundary = L.polygon([
+                    [18.60, 73.75], [18.62, 73.80], [18.60, 73.90],
+                    [18.55, 73.95], [18.48, 73.92], [18.45, 73.85],
+                    [18.48, 73.78], [18.52, 73.72]
+                ], boundaryStyle).addTo(map);
+                puneBoundary.bindPopup("<b>Administrative Boundary</b><br>Pune Municipal Corp.");
+
+                // 2. Polyline: Simulated Road Network (Blue Lines)
+                const roadStyle = {
+                    "color": "#3b82f6", // Tailwind blue-500
+                    "weight": 3,
+                    "opacity": 0.9
+                };
+
+                const mainRoad = L.polyline([
+                    [18.52, 73.72], [18.53, 73.85], [18.55, 73.95]
+                ], roadStyle).addTo(map);
+                mainRoad.bindPopup("<b>Arterial Road</b><br>Main Highway (Simulated)");
+
+                // 3. Markers: Key Landmarks (Fire Stations, etc.)
+                const markerIcon = L.icon({
+                    iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41],
+                    popupAnchor: [1, -34],
+                    shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+                    shadowSize: [41, 41]
+                });
+
+                L.marker([18.5204, 73.8567], {icon: markerIcon}).addTo(map)
+                    .bindPopup("<b>Shaniwar Wada</b><br>Historic Landmark")
+                    .openPopup();
+
+            }, 100);
+        }
+
+        function closeMap() {
+            const modal = document.getElementById('map-modal');
+            modal.classList.add('hide');
+            // We don't destroy the map, just hide it to preserve state/performance
         }
     </script>
 </body>
