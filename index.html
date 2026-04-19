@@ -171,9 +171,9 @@
                     
                     <!-- Filter Buttons -->
                     <div class="flex flex-wrap bg-slate-100 p-1 rounded-lg border border-slate-200 gap-1" id="filter-container">
-                        <button onclick="filterProjects('all')" class="filter-btn px-4 py-2 rounded-md text-sm font-medium bg-white text-cyan-700 shadow-sm transition-all border border-slate-200">All</button>
-                        <button onclick="filterProjects('Environmental & Hazard Analysis')" class="filter-btn px-4 py-2 rounded-md text-sm font-medium text-slate-500 hover:text-cyan-700 transition-all">Environmental & Hazard Analysis</button>
-                        <button onclick="filterProjects('Urban Intelligence')" class="filter-btn px-4 py-2 rounded-md text-sm font-medium text-slate-500 hover:text-cyan-700 transition-all">Urban Intelligence</button>
+                        <button onclick="filterProjects('all')" class="filter-btn px-4 py-2 rounded-md text-sm font-medium bg-cyan-600 text-white shadow-sm transition-all border border-cyan-600">All</button>
+                        <button onclick="filterProjects('Environmental & Hazard Analysis')" class="filter-btn px-4 py-2 rounded-md text-sm font-medium text-slate-500 bg-white hover:text-cyan-700 transition-all border border-slate-200">Environmental & Hazard Analysis</button>
+                        <button onclick="filterProjects('Urban Intelligence')" class="filter-btn px-4 py-2 rounded-md text-sm font-medium text-slate-500 bg-white hover:text-cyan-700 transition-all border border-slate-200">Urban Intelligence</button>
                     </div>
                 </div>
 
@@ -271,29 +271,55 @@
 
         <!-- About/Profile Section -->
         <section id="about" class="py-24 bg-white border-t border-slate-200">
-            <div class="container mx-auto px-6 max-w-4xl">
-                <div class="flex flex-col md:flex-row gap-12 items-center">
-                    <div class="w-48 h-48 flex-shrink-0">
-                        <div class="w-full h-full rounded-full overflow-hidden border-4 border-slate-100 shadow-xl relative bg-slate-200">
-                            <img src="profile.jpg" alt="Abhijeet Pawar" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x400/f1f5f9/475569?text=AP'">
+            <div class="container mx-auto px-6 max-w-5xl">
+                
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold text-slate-900 mb-4">Meet Our Team</h2>
+                    <div class="h-1 w-20 bg-cyan-600 mx-auto rounded"></div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12 md:gap-16">
+                    <!-- Analyst 1: Abhijeet -->
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-48 h-48 mb-6 flex-shrink-0">
+                            <div class="w-full h-full rounded-full overflow-hidden border-4 border-slate-100 shadow-xl relative bg-slate-200">
+                                <img src="Abhi.jpg" alt="Abhijeet Pawar" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x400/f1f5f9/475569?text=AP'">
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-900 mb-3">Abhijeet Pawar</h3>
+                            <p class="text-slate-600 mb-6 leading-relaxed">
+                                I am a City Professional and GIS Specialist currently pursuing an MA in Cities and Governance at the Tata Institute of Social Sciences. With a strong foundation in Public Administration and geospatial analytics, I bridge the gap between technical data and public policy. My expertise lies in translating satellite imagery into actionable insights for urban planning, disaster management, and environmental monitoring.
+                            </p>
+                            <div class="flex flex-wrap gap-3 justify-center">
+                                <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-semibold">Tata Institute of Social Sciences</span>
+                                <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-semibold">Public Administration</span>
+                                <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-semibold">Spatial Data Science</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="text-center md:text-left">
-                        <span class="text-cyan-600 font-bold uppercase tracking-widest text-sm mb-2 block">Meet the Analyst</span>
-                        <h2 class="text-3xl font-bold text-slate-900 mb-4">Abhijeet Pawar</h2>
-                        <p class="text-slate-600 mb-6 leading-relaxed">
-                            I am a City Professional and GIS Specialist currently pursuing an MA in Cities and Governance at the Tata Institute of Social Sciences (TISS). With a strong foundation in Public Administration and geospatial analytics, I bridge the gap between technical data and public policy.
-                        </p>
-                        <p class="text-slate-600 mb-6 leading-relaxed">
-                            My expertise lies in translating satellite imagery into actionable insights for urban planning, disaster management, and environmental monitoring.
-                        </p>
-                        <div class="flex flex-wrap gap-4 justify-center md:justify-start">
-                            <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-sm font-semibold">TISS Hyderabad</span>
-                            <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-sm font-semibold">Public Administration</span>
-                            <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-sm font-semibold">Spatial Data Science</span>
+
+                    <!-- Analyst 2: Nandini -->
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-48 h-48 mb-6 flex-shrink-0">
+                            <div class="w-full h-full rounded-full overflow-hidden border-4 border-slate-100 shadow-xl relative bg-slate-200">
+                                <img src="nandini.jpg" alt="Nandini Bhatnagar" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x400/f1f5f9/475569?text=NB'">
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-900 mb-3">Nandini Bhatnagar</h3>
+                            <p class="text-slate-600 mb-6 leading-relaxed">
+                                I am an urban governance and spatial data enthusiast pursuing an MA in Cities and Governance at the Tata Institute of Social Sciences. My work focuses on leveraging data-driven insights to build climate-resilient cities. I specialize in the intersection of spatial modeling and actionable policy, translating complex urban challenges into sustainable planning solutions.
+                            </p>
+                            <div class="flex flex-wrap gap-3 justify-center">
+                                <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-semibold">Tata Institute of Social Sciences</span>
+                                <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-semibold">Urban Governance</span>
+                                <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-semibold">Climate Resilience</span>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </section>
 
@@ -327,7 +353,7 @@
                 <i data-lucide="layers" class="w-5 h-5 text-slate-400"></i>
                 <span class="font-bold text-slate-600">GEOMATICA</span>
             </div>
-            <p>© 2025 Geomatica. All Rights Reserved.</p>
+            <p>© 2026 Geomatica. All Rights Reserved.</p>
         </footer>
     </div>
 
@@ -812,7 +838,7 @@
 
                     <!-- Right Column: Content -->
                     <div class="lg:col-span-4">
-                        <div> <!-- Removed lg:sticky lg:top-8 -->
+                        <div>
                             <span class="text-cyan-600 font-mono text-sm uppercase tracking-widest mb-2 block font-semibold">${data.category}</span>
                             <h1 class="text-3xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">${data.title}</h1>
                             
@@ -852,10 +878,10 @@
             buttons.forEach(btn => {
                 if (btn.innerText.toLowerCase() === category.toLowerCase() || (category === 'all' && btn.innerText === 'All')) {
                     btn.classList.remove('text-slate-500', 'bg-white', 'border-slate-200');
-                    btn.classList.add('bg-cyan-600', 'text-white', 'border-cyan-600', 'shadow-md');
+                    btn.classList.add('bg-cyan-600', 'text-white', 'border-cyan-600', 'shadow-sm');
                 } else {
                     btn.classList.add('text-slate-500', 'bg-white', 'border-slate-200');
-                    btn.classList.remove('bg-cyan-600', 'text-white', 'border-cyan-600', 'shadow-md');
+                    btn.classList.remove('bg-cyan-600', 'text-white', 'border-cyan-600', 'shadow-sm');
                 }
             });
 
